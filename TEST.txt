@@ -1,6 +1,0 @@
-TEST push
-
-on en refait un autre
-
-
-Demande-t-il toujours un MPD sur VSCODE ?
