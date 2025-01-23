@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fiche Survival</title>
+    <link rel="stylesheet" href="Fiche_Survival.css"> <!-- Ajoutez le fichier CSS correspondant -->
+</head>
+<body>
+    <div class="sheet">
+        <!-- En-tête -->
+        <div class="header">
+            <div>
+                <label>Nom :</label>
+                <input type="text" name="nom" placeholder="Nom du personnage">
+            </div>
+            <div>
+                <label>Occupation :</label>
+                <select name="occupation">
+                    <option value="placeholder" selected>-- Choisir une occupation --</option>
+                    <option value="chasseur">Chasseur</option>
+                    <option value="biologiste">Biologiste</option>
+                    <option value="ingenieur">Ingénieur</option>
+                    <option value="capitaine">Capitaine</option>
+                    <option value="avocat">Avocat</option>
+                    <option value="botaniste">Botaniste</option>
+                </select>
+            </div>
+            <div>
+                <label>Genre :</label>
+                <input type="text" name="genre" placeholder="Genre">
+            </div>
+        </div>
+
+        <!-- Statistiques -->
+        <div class="stats">
+            <div class="stat">
+                <div class="score">0</div>
+                <div class="description">
+                    <span>Puissance</span>
+                    <span>Adresse</span>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="score">0</div>
+                <div class="description">
+                    <span>Observation</span>
+                    <span>Précision</span>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="score">0</div>
+                <div class="description">
+                    <span>Ruse</span>
+                    <span>Connaissances</span>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="score">0</div>
+                <div class="description">
+                    <span>Endurance</span>
+                    <span>Survie</span>
+                </div>
+            </div>
+            <div class="stat">
+                <div class="score">0</div>
+                <div class="description">
+                    <span>Réflexes</span>
+                    <span>Chance</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Sac -->
+        <div class="inventory">
+            <h3>Sac</h3>
+            <div class="bag">
+                <!-- Icône de sac -->
+                <div class="bag-icon">🎒</div>
+                <!-- Emplacements pour objets -->
+                <div class="slots">
+                    <div class="slot">Objet 1</div>
+                    <div class="slot">Objet 2</div>
+                    <div class="slot">Objet 3</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Capacités -->
+        <div class="skills">
+            <h3>Capacités</h3>
+            <div class="skills-columns">
+                <div class="column">
+                    <div class="skill">Capacité 1</div>
+                    <div class="skill">Capacité 2</div>
+                </div>
+                <div class="column">
+                    <div class="skill">Capacité 3</div>
+                    <div class="skill">Capacité 4</div>
+                </div>
+                <div class="column">
+                    <div class="skill">Capacité 5</div>
+                    <div class="skill">Capacité 6</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
