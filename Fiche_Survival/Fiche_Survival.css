@@ -1,0 +1,95 @@
+/* Police personnalisée */
+@import url('https://fonts.googleapis.com/css2?family=AC+Big+Serif&display=swap');
+
+/* Fond global de la fiche */
+.character-sheet {
+  font-family: 'AC Big Serif', serif;
+  background: url("https://raw.githubusercontent.com/MrColgate7/roll20-custom-character-sheets/refs/heads/DEV/FicheV2.png") no-repeat center center;
+  background-size: cover;
+  color: #000;
+  padding: 5%; /* Espacement interne adaptatif */
+  height: auto;
+  width: 100%; /* Remplit la largeur disponible */
+  max-width: 1200px; /* Largeur maximale pour éviter un étirement excessif */
+  margin: auto; /* Centré horizontalement */
+  position: relative;
+}
+
+/* Conteneur pour les statistiques */
+.statistiques {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Colonnes dynamiques */
+  gap: 20px; /* Espacement entre les statistiques */
+  align-items: center;
+}
+
+/* Bloc statistique */
+.bloc-stat {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.8); /* Fond semi-transparent pour contraste */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère pour relief */
+}
+
+/* Conteneur des labels */
+.label-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1; /* Prend tout l'espace disponible */
+  margin-right: 10px;
+}
+
+/* Zones de texte */
+.label-container textarea {
+  resize: none;
+  border: none;
+  outline: none;
+  background: transparent; /* Fond transparent */
+  font-family: 'AC Big Serif', serif;
+  font-size: 14px;
+  color: #000;
+  height: 50%; /* Divisé en deux lignes */
+}
+
+/* Carré de statistique */
+.stat-box {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff; /* Fond blanc */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'AC Big Serif', serif;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Médias queries pour petits écrans */
+@media (max-width: 768px) {
+  .statistiques {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Plus petites colonnes */
+    gap: 10px; /* Réduit l'espacement */
+  }
+
+  .bloc-stat {
+    flex-direction: column; /* Les éléments passent en colonne */
+    align-items: flex-start;
+  }
+
+  .stat-box {
+    width: 50px;
+    height: 50px;
+    font-size: 16px; /* Réduit la taille de la police */
+  }
+
+  .label-container textarea {
+    font-size: 12px; /* Texte plus petit */
+  }
+}

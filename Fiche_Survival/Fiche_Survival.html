@@ -1,0 +1,102 @@
+<div class="character-sheet">
+  <!-- Section Nom, Occupation et Genre -->
+  <div class="entete">
+    <label for="nom">Nom :</label>
+    <input type="text" name="attr_nom" placeholder="Nom du personnage" />
+
+    <label for="occupation">Occupation :</label>
+    <select name="attr_occupation">
+      <option value="placeholder" selected>-- Choisir une occupation --</option>
+      <option value="chasseur">Chasseur</option>
+      <option value="biologiste">Biologiste</option>
+      <option value="ingenieur">Ingénieur</option>
+      <option value="capitaine">Capitaine</option>
+      <option value="avocat">Avocat</option>
+      <option value="botaniste">Botaniste</option>
+    </select>
+
+    <label for="genre">Genre :</label>
+    <select name="attr_genre">
+      <option value="masculin">Masculin</option>
+      <option value="feminin">Féminin</option>
+      <option value="autre">Autre</option>
+    </select>
+  </div>
+
+  <!-- Statistiques -->
+  <div class="statistiques">
+    <div class="bloc-stat">
+      <label>Puissance :</label>
+      <input type="text" name="attr_puissance_total" readonly />
+    </div>
+    <div class="bloc-stat">
+      <input type="text" name="attr_observation_total" readonly />
+	  <label>Observation :</label>
+    </div>
+    <div class="bloc-stat">
+      <label>Ruse :</label>
+      <input type="text" name="attr_ruse_total" readonly />
+    </div>
+    <div class="bloc-stat">
+      <label>Endurance :</label>
+      <input type="text" name="attr_endurance_total" readonly />
+    </div>
+    <div class="bloc-stat">
+      <label>Reflexes :</label>
+      <input type="text" name="attr_reflexes_total" readonly />
+    </div>
+  </div>
+</div>
+
+<script type="text/worker">
+  // Définition des statistiques de base par occupation
+  const occupations = {
+    chasseur: { puissance: 1, observation: 1, ruse: 2, endurance: 0, reflexes: 1 },
+    biologiste: { puissance: 0, observation: 2, ruse: 1, endurance: 2, reflexes: 0 },
+    ingenieur: { puissance: 2, observation: 1, ruse: 0, endurance: 1, reflexes: 1 },
+    capitaine: { puissance: 2, observation: 0, ruse: 0, endurance: 2, reflexes: 1 },
+    avocat: { puissance: 1, observation: 2, ruse: 2, endurance: 0, reflexes: 0 },
+    botaniste: { puissance: 0, observation: 1, ruse: 1, endurance: 1, reflexes: 2 },
+    placeholder: { puissance: 0, observation: 0, ruse: 0, endurance: 0, reflexes: 0 },
+  };
+
+  // Liste des statistiques
+  const statsList = ["puissance", "observation", "ruse", "endurance", "reflexes"];
+
+  // Mise à jour des statistiques de base et totales
+  on("change:occupation", function () {
+    getAttrs(["occupation"], function (values) {
+      const occupation = values.occupation;
+      let updates = {};
+
+      if (occupations[occupation]) {
+        // Définit les valeurs de base
+        statsList.forEach((stat) => {
+          updates[stat] = occupations[occupation][stat];
+          updates[`${stat}_bonus`] = 0; // Réinitialise les bonus
+          updates[`${stat}_total`] = occupations[occupation][stat]; // Initialise le total
+        });
+      }
+
+      setAttrs(updates);
+    });
+  });
+
+  // Gestion des boutons +1
+  statsList.forEach((stat) => {
+    on(`clicked:add_${stat}`, function () {
+      getAttrs([`${stat}`, `${stat}_bonus`, `${stat}_total`], function (values) {
+        const baseValue = parseInt(values[stat]) || 0;
+        const bonusValue = parseInt(values[`${stat}_bonus`]) || 0;
+
+        // Ajoute un bonus uniquement si la valeur totale est inférieure à 2
+        if (baseValue + bonusValue < 2) {
+          let updates = {};
+          updates[`${stat}_bonus`] = bonusValue + 1;
+          updates[`${stat}_total`] = baseValue + bonusValue + 1;
+          setAttrs(updates);
+        }
+      });
+    });
+  });
+</script>
