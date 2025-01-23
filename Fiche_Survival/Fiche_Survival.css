@@ -26,16 +26,16 @@ body {
 /* Zone 1 : En-tête */
 .zone-header {
   display: flex;
-  justify-content: flex-start; /* L'avatar reste proche des champs */
-  gap: 20px; /* Espace entre les sections */
-  margin-bottom: 15px; /* Ajustement pour une meilleure séparation */
+  justify-content: flex-start; /* Garde l'avatar proche des champs */
+  gap: 20px; /* Ajoute un espace régulier entre sections */
+  margin-bottom: 20px;
+  align-items: center; /* Centre verticalement l'avatar avec les champs */
 }
 
-.zone-header-infos {
-  flex: 2; /* Ajustement pour équilibrer l'espace avec l'avatar */
-  display: flex;
-  flex-direction: column;
-  gap: 8px; /* Espace réduit entre les champs */
+.zone-header-infos input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 230px;
 }
 
 .zone-header-infos label {
@@ -45,12 +45,12 @@ body {
 .zone-header-infos input {
   border: 1px solid #ccc;
   padding: 5px;
-  width: 220px; /* Légère augmentation pour remplir l'espace */
+  width: 230px; /* Largeur augmentée pour une meilleure visibilité */
 }
 
 .zone-header-avatar {
-  flex: 0; /* Garde une taille fixe */
-  width: 100px;
+  flex: 0;
+  width: 100px; /* Taille carrée */
   height: 100px;
   background: #ddd;
   border: 1px solid #ccc;
@@ -68,7 +68,7 @@ body {
   font-size: 10px;
   color: #aaa;
   position: absolute;
-  bottom: 5px; /* Texte en bas de la zone */
+  bottom: 5px;
 }
 
 /* Zone 2 : Statistiques */
