@@ -1,0 +1,120 @@
+<div class="charsheet sheet-wrapper">
+  <header class="sheet-header">
+    <h1><span data-i18n="character_sheet_title">Fiche de personnage</span></h1>
+    <div class="sheet-row">
+      <label class="sheet-label" for="attr_character_name" data-i18n="name">Nom</label>
+      <input type="text" name="attr_character_name" class="sheet-input" />
+
+      <label class="sheet-label" for="attr_player" data-i18n="player">Joueur</label>
+      <input type="text" name="attr_player" class="sheet-input" />
+    </div>
+  </header>
+
+  <!-- NAV TABS -->
+  <nav class="sheet-tabs" role="tablist">
+    <label class="sheet-tab" for="tab-info"><input id="tab-info" type="radio" name="attr_tab" value="info" checked /> <span data-i18n="tab_info">Renseignements</span></label>
+    <label class="sheet-tab" for="tab-skills"><input id="tab-skills" type="radio" name="attr_tab" value="skills" /> <span data-i18n="tab_skills">Compétences</span></label>
+    <label class="sheet-tab" for="tab-inventory"><input id="tab-inventory" type="radio" name="attr_tab" value="inventory" /> <span data-i18n="tab_inventory">Inventaire</span></label>
+  </nav>
+
+  <div class="sheet-pages">
+    <!-- PAGE 1 : RENSEIGNEMENTS -->
+    <section class="sheet-page sheet-page--info" aria-labelledby="tab-info">
+      <div class="sheet-grid-2">
+        <fieldset class="sheet-ability">
+          <legend data-i18n="abilities">Caractéristiques</legend>
+
+          <div class="sheet-ability-row">
+            <span class="sheet-ability-name" data-i18n="strength">Force</span>
+            <input type="number" name="attr_strength" class="sheet-num" value="10" min="0" />
+            <span class="sheet-ability-mod">mod</span>
+            <input type="number" name="attr_strength_mod" class="sheet-num" value="0" readonly />
+            <button type="roll" class="sheet-roll" name="roll_strength_check" value="&{template:check} {{label=^{strength}}} {{result=[[1d20 + @{strength_mod}]]}}" data-i18n-title="roll_check" title="Jet (check)">🎲</button>
+          </div>
+
+          <div class="sheet-ability-row">
+            <span class="sheet-ability-name" data-i18n="dexterity">Dextérité</span>
+            <input type="number" name="attr_dexterity" class="sheet-num" value="10" min="0" />
+            <span class="sheet-ability-mod">mod</span>
+            <input type="number" name="attr_dexterity_mod" class="sheet-num" value="0" readonly />
+            <button type="roll" class="sheet-roll" name="roll_dexterity_check" value="&{template:check} {{label=^{dexterity}}} {{result=[[1d20 + @{dexterity_mod}]]}}" data-i18n-title="roll_check" title="Jet (check)">🎲</button>
+          </div>
+        </fieldset>
+
+        <fieldset class="sheet-stats">
+          <legend data-i18n="resources">Ressources</legend>
+          <label class="sheet-label" data-i18n="hp">PV</label>
+          <input type="number" name="attr_hp" class="sheet-num" value="10" min="0" />
+
+          <label class="sheet-label" data-i18n="xp">XP</label>
+          <input type="number" name="attr_xp" class="sheet-num" value="0" min="0" />
+        </fieldset>
+      </div>
+    </section>
+
+    <!-- PAGE 2 : COMPÉTENCES -->
+    <section class="sheet-page sheet-page--skills" aria-labelledby="tab-skills">
+      <h2 data-i18n="skills">Compétences</h2>
+      <fieldset class="repeating_skills">
+        <div class="sheet-row">
+          <input type="text" name="attr_skill_name" class="sheet-input" placeholder="^{skill_name}" />
+          <input type="number" name="attr_skill_value" class="sheet-num" value="0" min="0" />
+          <button type="roll" class="sheet-roll" name="roll_skill" value="&{template:check} {{label=@{skill_name}}} {{result=[[1d20 + @{skill_value}]]}}" data-i18n-title="roll_check">🎲</button>
+        </div>
+      </fieldset>
+    </section>
+
+    <!-- PAGE 3 : INVENTAIRE -->
+    <section class="sheet-page sheet-page--inventory" aria-labelledby="tab-inventory">
+      <h2 data-i18n="inventory">Inventaire</h2>
+      <fieldset class="repeating_inventory">
+        <div class="sheet-row">
+          <input type="text" name="attr_item_name" class="sheet-input" placeholder="^{item}" />
+          <input type="number" name="attr_item_qty" class="sheet-num" value="1" min="0" />
+          <input type="text" name="attr_item_notes" class="sheet-input" placeholder="^{notes}" />
+        </div>
+      </fieldset>
+    </section>
+  </div>
+
+  <section class="sheet-rollarea">
+    <h2 data-i18n="rolls">Jets</h2>
+    <button type="roll" class="sheet-roll" name="roll_initiative" value="&{template:check} {{label=^{initiative}}} {{result=[[1d20 + @{dexterity_mod}]]}}" data-i18n="initiative">Initiative</button>
+  </section>
+</div>
+
+<rolltemplate class="sheet-rolltemplate-check">
+  <div class="sheet-template">
+    <div class="sheet-title">{{label}}</div>
+    <div class="sheet-result">{{result}}</div>
+  </div>
+</rolltemplate>
+
+<script type="text/worker">
+  const clamp = (n, min, max) => Math.max(min, Math.min(max, n));
+  const computeMod = (score) => Math.floor((Number(score) - 10) / 2);
+
+  on("change:strength", function(evt) {
+    const s = clamp(evt.newValue || 10, 0, 99);
+    setAttrs({ strength: s, strength_mod: computeMod(s) });
+  });
+
+  on("change:dexterity", function(evt) {
+    const d = clamp(evt.newValue || 10, 0, 99);
+    setAttrs({ dexterity: d, dexterity_mod: computeMod(d) });
+  });
+
+  on("sheet:opened", function() {
+    getAttrs(["strength","dexterity","tab"], (v) => {
+      const s = v.strength || 10;
+      const d = v.dexterity || 10;
+      const set = { strength_mod: computeMod(s), dexterity_mod: computeMod(d) };
+      if (!v.tab) set.tab = "info";
+      setAttrs(set);
+    });
+  });
+
+  on("change:attr_tab", function(evt) {
+    setAttrs({ tab: evt.newValue });
+  });
+</script>
