@@ -1,0 +1,30 @@
+Identité 
+    Nom : 
+    Prénom :
+    Surnom (ou non de code) :
+    âge :
+    Taille :
+    Origine & histoire :
+
+Statistiques 
+    Force : 
+    Agilité :
+    Technique : 
+    Endurance :
+    Intuition : 
+    Déduction : 
+    Éloquence : 
+
+Inventaire
+    X emplacements
+
+Compétences
+    x emplacements
+
+Blessures
+    Tête
+    Torse
+    Bras droit
+    Bras gauche
+    Jambe Droite
+    Jambe Gauche
