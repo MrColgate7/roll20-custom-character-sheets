@@ -1,30 +1,35 @@
-Identité 
-    Nom : 
-    Prénom :
-    Surnom (ou non de code) :
-    âge :
-    Taille :
-    Origine & histoire :
+Contenu
+    Identité 
+        Nom : 
+        Prénom :
+        Surnom (ou nom de code) :
+        âge :
+        Taille :
+        Origine & histoire :
 
-Statistiques 
-    Force : 
-    Agilité :
-    Technique : 
-    Endurance :
-    Intuition : 
-    Déduction : 
-    Éloquence : 
+    Statistiques 
+        Force : 
+        Agilité :
+        Technique : 
+        Endurance :
+        Intuition : 
+        Déduction : 
+        Éloquence : 
 
-Inventaire
-    X emplacements
+    Inventaire
+        X emplacements
 
-Compétences
-    x emplacements
+    Compétences
+        x emplacements
 
-Blessures
-    Tête
-    Torse
-    Bras droit
-    Bras gauche
-    Jambe Droite
-    Jambe Gauche
+    Blessures
+        Tête
+        Torse
+        Bras droit
+        Bras gauche
+        Jambe Droite
+        Jambe Gauche
+
+
+Design : 
+Parchemin + Griffure (BGM)
