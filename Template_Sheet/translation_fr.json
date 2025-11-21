@@ -1,13 +1,81 @@
 {
-  "character_sheet_title": "Fiche de personnage",
-  "refresh": "Rafraîchir",
-  "view_avatar": "Voir avatar",
-  "view_token": "Voir token",
-  "tab_main": "Principal",
-  "tab_identite": "Identité",
-  "tab_stats": "Statistiques",
-  "tab_competences": "Compétences",
-  "tab_inventaire": "Inventaire",
-  "tab_objet": "Objet",
-  "tab_blessures": "Blessures"
+  "html": {
+    "Fiche de personnage": "Fiche de personnage",
+
+    "Principal": "Principal",
+    "Identité": "Identité",
+    "Inventaire": "Inventaire",
+    "Compétences": "Compétences",
+    "Objet": "Objet",
+
+    "Nom": "Nom",
+    "Prénom": "Prénom",
+    "Surnom / Nom de code": "Surnom / Nom de code",
+
+    "Statistiques finales": "Statistiques finales",
+    "Force": "Force",
+    "Agilité": "Agilité",
+    "Technique": "Technique",
+    "Endurance": "Endurance",
+    "Intuition": "Intuition",
+    "Déduction": "Déduction",
+    "Éloquence": "Éloquence",
+
+    "Compétences actives": "Compétences actives",
+    "Effet": "Effet",
+    "Notes": "Notes",
+
+    "Compétences passives": "Compétences passives",
+
+    "Corps / Blessures": "Corps / Blessures",
+    "Tête": "Tête",
+    "Torse": "Torse",
+    "Bras droit": "Bras droit",
+    "Bras gauche": "Bras gauche",
+    "Jambe droite": "Jambe droite",
+    "Jambe gauche": "Jambe gauche",
+
+    "Inventaire rapide": "Inventaire rapide",
+    "Effet / usage": "Effet / usage",
+
+    "Origine & histoire": "Origine & histoire",
+
+    "Nombre total d’emplacements": "Nombre total d’emplacements",
+    "Description / notes": "Description / notes",
+    "Taille": "Taille",
+    "Équipé ?": "Équipé ?",
+
+    "Statistiques (détail)": "Statistiques (détail)",
+    "Base": "Base",
+    "Équipement": "Équipement",
+    "Bonus": "Bonus",
+    "Total": "Total",
+
+    "Compétences verrouillées / futures": "Compétences verrouillées / futures",
+
+    "Objet (modèle)": "Objet (modèle)",
+    "Type": "Type",
+    "Description": "Description",
+
+    "Taille & inventaire": "Taille & inventaire",
+    "Taille (en emplacements)": "Taille (en emplacements)",
+    "Peut s’imbriquer dans un autre objet ?": "Peut s’imbriquer dans un autre objet ?",
+    "Peut accueillir d’autres objets ?": "Peut accueillir d’autres objets ?",
+    "Utilité / fonction": "Utilité / fonction",
+
+    "Dégâts (si applicable)": "Dégâts (si applicable)",
+    "Contact": "Contact",
+    "Lancé": "Lancé",
+    "Spéciaux": "Spéciaux",
+
+    "Valeur": "Valeur",
+    "Type de dégâts": "Type de dégâts",
+    "Effets additionnels": "Effets additionnels",
+
+    "Compatibilités / synergies": "Compatibilités / synergies",
+
+    "Durabilité (optionnel)": "Durabilité (optionnel)",
+    "Durabilité max": "Durabilité max",
+    "Durabilité actuelle": "Durabilité actuelle"
+  }
 }
