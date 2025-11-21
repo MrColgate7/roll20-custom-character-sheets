@@ -1,116 +1,137 @@
-<div class="charsheet sheet-wrapper">
+<div class="charsheet sheet-wrapper sheet-theme-parchment">
   <div class="sheet-a4">
-
-    <!-- TITRE + OUTILS -->
     <header class="sheet-header">
-      <h1 data-i18n="character_sheet_title">Fiche de personnage</h1>
-      <div class="sheet-tools">
-        <button type="roll" class="sheet-btn" value="!syncchar" data-i18n="refresh">Rafraîchir</button>
-        <button type="roll" class="sheet-btn"
-                value="&{template:showimg} {{title=^{view_avatar}}} {{img=@{avatar_url_chat}}}"
-                data-i18n="view_avatar">Voir avatar</button>
-        <button type="roll" class="sheet-btn"
-                value="&{template:showimg} {{title=^{view_token}}} {{img=@{defaulttoken_img_chat}}}"
-                data-i18n="view_token">Voir token</button>
+      <div>
+        <p class="sheet-subtitle">Parchemin + Griffure</p>
+        <h1 data-i18n="character_sheet_title">Fiche de personnage</h1>
       </div>
     </header>
 
-    <!-- TABS -->
-    <input id="tab-identite" type="radio" name="attr_tab" value="identite" class="sheet-tab-toggle" checked />
-    <label class="sheet-tab" for="tab-identite" data-i18n="tab_identite">Identité</label>
+    <div class="sheet-tabs">
+      <input type="radio" name="sheet-tab" id="tab-main" value="main" checked />
+      <label for="tab-main">Onglet principal</label>
+    </div>
 
-    <input id="tab-stats" type="radio" name="attr_tab" value="stats" class="sheet-tab-toggle" />
-    <label class="sheet-tab" for="tab-stats" data-i18n="tab_stats">Statistiques</label>
-
-    <input id="tab-competences" type="radio" name="attr_tab" value="competences" class="sheet-tab-toggle" />
-    <label class="sheet-tab" for="tab-competences" data-i18n="tab_competences">Compétences</label>
-
-    <input id="tab-inventaire" type="radio" name="attr_tab" value="inventaire" class="sheet-tab-toggle" />
-    <label class="sheet-tab" for="tab-inventaire" data-i18n="tab_inventaire">Inventaire</label>
-
-    <input id="tab-blessures" type="radio" name="attr_tab" value="blessures" class="sheet-tab-toggle" />
-    <label class="sheet-tab" for="tab-blessures" data-i18n="tab_blessures">Blessures</label>
-
-    <!-- PAGES -->
-    <div class="sheet-pages">
-
-      <!-- IDENTITÉ -->
-      <section class="sheet-page sheet-page--identite">
-        <h2 data-i18n="tab_identite">Identité</h2>
-        <div class="sheet-grid-2">
-          <div>
-            <label>Nom</label> <input type="text" name="attr_nom" />
-            <label>Prénom</label> <input type="text" name="attr_prenom" />
-            <label>Surnom / Nom de code</label> <input type="text" name="attr_surnom" />
-            <label>Âge</label> <input type="number" name="attr_age" min="0" />
-            <label>Taille (cm)</label> <input type="number" name="attr_taille" min="0" />
+    <div class="sheet-tab-content" data-tab="main">
+      <section class="sheet-card sheet-identity">
+        <div class="sheet-card-heading">
+          <h2 data-i18n="tab_identite">Identité</h2>
+          <span class="sheet-note">Zone Header</span>
+        </div>
+        <div class="sheet-identity-header">
+          <label>Nom<input type="text" name="attr_nom" /></label>
+          <label>Surnom<input type="text" name="attr_surnom" /></label>
+          <label>Prénom<input type="text" name="attr_prenom" /></label>
+        </div>
+        <div class="sheet-grid-2 sheet-identity-details">
+          <div class="sheet-stack">
+            <label>Âge :</label> <input type="number" name="attr_age" min="0" />
+            <label>Taille :</label> <input type="number" name="attr_taille" min="0" />
           </div>
-          <div>
-            <label>Origine & histoire</label>
-            <textarea name="attr_origine" rows="10"></textarea>
+          <div class="sheet-stack">
+            <label>Origine &amp; histoire :</label>
+            <textarea name="attr_origine" rows="6"></textarea>
           </div>
         </div>
       </section>
 
-      <!-- STATISTIQUES -->
-      <section class="sheet-page sheet-page--stats">
+      <section class="sheet-card">
         <h2 data-i18n="tab_stats">Statistiques</h2>
-        <div class="sheet-grid-3">
-          <div class="sheet-stat"><label>Force</label><input type="number" name="attr_force" min="0" value="0" /></div>
-          <div class="sheet-stat"><label>Agilité</label><input type="number" name="attr_agilite" min="0" value="0" /></div>
-          <div class="sheet-stat"><label>Technique</label><input type="number" name="attr_technique" min="0" value="0" /></div>
-          <div class="sheet-stat"><label>Endurance</label><input type="number" name="attr_endurance" min="0" value="0" /></div>
-          <div class="sheet-stat"><label>Intuition</label><input type="number" name="attr_intuition" min="0" value="0" /></div>
-          <div class="sheet-stat"><label>Déduction</label><input type="number" name="attr_deduction" min="0" value="0" /></div>
-          <div class="sheet-stat"><label>Éloquence</label><input type="number" name="attr_eloquence" min="0" value="0" /></div>
+        <div class="sheet-grid-3 sheet-stats-grid">
+          <div class="sheet-stat">
+            <label>Force :</label><input type="number" name="attr_force" min="0" value="0" />
+          </div>
+          <div class="sheet-stat">
+            <label>Agilité :</label><input type="number" name="attr_agilite" min="0" value="0" />
+          </div>
+          <div class="sheet-stat">
+            <label>Technique :</label><input type="number" name="attr_technique" min="0" value="0" />
+          </div>
+          <div class="sheet-stat">
+            <label>Endurance :</label><input type="number" name="attr_endurance" min="0" value="0" />
+          </div>
+          <div class="sheet-stat">
+            <label>Intuition :</label><input type="number" name="attr_intuition" min="0" value="0" />
+          </div>
+          <div class="sheet-stat">
+            <label>Déduction :</label><input type="number" name="attr_deduction" min="0" value="0" />
+          </div>
+          <div class="sheet-stat">
+            <label>Éloquence :</label><input type="number" name="attr_eloquence" min="0" value="0" />
+          </div>
         </div>
       </section>
 
-      <!-- COMPÉTENCES -->
-      <section class="sheet-page sheet-page--competences">
-        <h2 data-i18n="tab_competences">Compétences</h2>
-        <fieldset class="repeating_competences">
-          <div class="sheet-row">
-            <input type="text" name="attr_nom_competence" placeholder="Nom" />
-            <input type="text" name="attr_description_competence" placeholder="Description" />
-            <input type="number" name="attr_niveau_competence" min="0" value="0" />
-          </div>
-        </fieldset>
-      </section>
+      <div class="sheet-action-grid">
+        <div class="sheet-column sheet-column--left">
+          <section class="sheet-card">
+            <div class="sheet-row sheet-row--between">
+              <h3>Compétences (x emplacements)</h3>
+              <input type="number" name="attr_competences_emplacements" min="0" value="0" class="sheet-compact" />
+            </div>
+          </section>
 
-      <!-- INVENTAIRE -->
-      <section class="sheet-page sheet-page--inventaire">
-        <h2 data-i18n="tab_inventaire">Inventaire</h2>
-        <fieldset class="repeating_inventaire">
-          <div class="sheet-row">
-            <input type="text" name="attr_nom_objet" placeholder="Nom de l’objet" />
-            <input type="number" name="attr_quantite" min="1" value="1" />
-            <input type="text" name="attr_description" placeholder="Description" />
-          </div>
-        </fieldset>
-      </section>
+          <section class="sheet-card">
+            <div class="sheet-card-heading">
+              <h3>Compétences actives</h3>
+            </div>
+            <fieldset class="repeating_comp_actives">
+              <div class="sheet-row sheet-item">
+                <input type="text" name="attr_nom_competence_active" placeholder="Nom" />
+                <input type="text" name="attr_description_competence_active" placeholder="Description" />
+                <input type="number" name="attr_niveau_competence_active" min="0" value="0" class="sheet-compact" />
+              </div>
+            </fieldset>
+          </section>
 
-      <!-- BLESSURES -->
-      <section class="sheet-page sheet-page--blessures">
-        <h2 data-i18n="tab_blessures">Blessures</h2>
-        <div class="sheet-grid-3">
-          <label>Tête</label> <input type="text" name="attr_blessure_tete" />
-          <label>Torse</label> <input type="text" name="attr_blessure_torse" />
-          <label>Bras Droit</label> <input type="text" name="attr_blessure_bd" />
-          <label>Bras Gauche</label> <input type="text" name="attr_blessure_bg" />
-          <label>Jambe Droite</label> <input type="text" name="attr_blessure_jd" />
-          <label>Jambe Gauche</label> <input type="text" name="attr_blessure_jg" />
+          <section class="sheet-card">
+            <div class="sheet-card-heading">
+              <h3>Compétences passives</h3>
+            </div>
+            <fieldset class="repeating_comp_passives">
+              <div class="sheet-row sheet-item">
+                <input type="text" name="attr_nom_competence_passive" placeholder="Nom" />
+                <input type="text" name="attr_description_competence_passive" placeholder="Description" />
+                <input type="number" name="attr_niveau_competence_passive" min="0" value="0" class="sheet-compact" />
+              </div>
+            </fieldset>
+          </section>
         </div>
-      </section>
 
+        <div class="sheet-column sheet-column--right">
+          <section class="sheet-card">
+            <h3>Corps</h3>
+            <div class="sheet-grid-3 sheet-wounds">
+              <label>Tête</label> <input type="text" name="attr_blessure_tete" />
+              <label>Torse</label> <input type="text" name="attr_blessure_torse" />
+              <label>Bras droit</label> <input type="text" name="attr_blessure_bd" />
+              <label>Bras gauche</label> <input type="text" name="attr_blessure_bg" />
+              <label>Jambe Droite</label> <input type="text" name="attr_blessure_jd" />
+              <label>Jambe Gauche</label> <input type="text" name="attr_blessure_jg" />
+            </div>
+          </section>
+
+          <section class="sheet-card">
+            <div class="sheet-card-heading">
+              <div>
+                <h3>Inventaire rapide</h3>
+                <p class="sheet-mini-note">1 emplacement = 1 objet de taille 1. Un objet peut occuper plusieurs emplacements.</p>
+              </div>
+              <div class="sheet-row sheet-row--between sheet-capacity">
+                <label>Emplacements (X)</label>
+                <input type="number" name="attr_inventaire_emplacements" min="0" value="0" class="sheet-compact" />
+              </div>
+            </div>
+            <fieldset class="repeating_inventaire">
+              <div class="sheet-row sheet-item">
+                <input type="text" name="attr_nom_objet" placeholder="Nom de l’objet" />
+                <input type="number" name="attr_taille_objet" min="1" value="1" class="sheet-compact" title="Taille de l’objet" />
+                <input type="text" name="attr_description" placeholder="Description" />
+              </div>
+            </fieldset>
+          </section>
+        </div>
+      </div>
     </div>
   </div>
 </div>
-
-<!-- ROLL TEMPLATE pour les images -->
-<rolltemplate class="sheet-rolltemplate-showimg">
-  <div class="sheet-showimg">
-    <div class="sheet-title">{{title}}</div>
-    <img src="{{img}}" class="sheet-img">
-  </div>
-</rolltemplate>

@@ -18,6 +18,8 @@ Contenu
 
     Inventaire
         X emplacements
+            1 emplacement = 1 Objet de taille 1 
+        Un objet peut avoir plusieurs tailles : Objet taille 3 = 3 emplacement d'inventaire
 
     Compétences
         x emplacements
@@ -31,5 +33,15 @@ Contenu
         Jambe Gauche
 
 
-Design : 
+Design :
+- Liste des onglets (Liste Horisontale)
+    - Onglet principal :
+        -"Zone Header" (Lecture seule): 
+            - Nom, "Surnom" & Prénom 
+        - Zone d'action (La zone est divisé en 2 colonnes): 
+            - colonne de droite : 
+                - Corps (Zone des blessure + Inventaire rapide)
+            - colonne de gauche :
+                - Zone des compétences actives
+                - Zones des compétences passives
 Parchemin + Griffure (BGM)
