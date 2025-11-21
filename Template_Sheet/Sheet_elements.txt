@@ -33,7 +33,7 @@ Contenu
         Jambe Gauche
 
 
-Design : 
+Design :
 - Liste des onglets (Liste Horisontale)
     - Onglet principal :
         -"Zone Header" (Lecture seule): 
@@ -44,4 +44,4 @@ Design :
             - colonne de gauche :
                 - Zone des compétences actives
                 - Zones des compétences passives
-                
+Parchemin + Griffure (BGM)
