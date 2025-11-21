@@ -1,0 +1,317 @@
+/* Conteneur général */
+.feuille-personnage {
+  font-family: Arial, sans-serif;
+  font-size: 13px;
+  color: #333;
+  background: #f8f5ec;
+  border: 1px solid #c9b88a;
+  padding: 12px;
+  box-sizing: border-box;
+}
+
+/* Titre principal */
+.sheet-top-title {
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+.sheet-top-title h1 {
+  font-size: 22px;
+  margin: 0 0 8px 0;
+}
+
+/* Onglets */
+.sheet-tab-toggle {
+  display: none;
+}
+
+.sheet-tabs {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 10px;
+}
+
+.sheet-tab-label {
+  flex: 1;
+  text-align: left;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #d0b784;
+  background: #ffffff;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+/* Onglet sélectionné : fond différent */
+#tab-principal:checked ~ .sheet-tabs label[for="tab-principal"],
+#tab-identite:checked ~ .sheet-tabs label[for="tab-identite"],
+#tab-inventaire:checked ~ .sheet-tabs label[for="tab-inventaire"],
+#tab-competences:checked ~ .sheet-tabs label[for="tab-competences"],
+#tab-objet:checked ~ .sheet-tabs label[for="tab-objet"] {
+  background: #f2e3b9;
+}
+
+/* Contenu des onglets */
+.sheet-tab-content {
+  display: none;
+  margin-top: 8px;
+}
+
+/* Affichage du bon onglet */
+#tab-principal:checked ~ .sheet-tab-content[data-tab="principal"],
+#tab-identite:checked  ~ .sheet-tab-content[data-tab="identite"],
+#tab-inventaire:checked ~ .sheet-tab-content[data-tab="inventaire"],
+#tab-competences:checked ~ .sheet-tab-content[data-tab="competences"],
+#tab-objet:checked      ~ .sheet-tab-content[data-tab="objet"] {
+  display: block;
+}
+
+/* Blocs généraux */
+.bloc {
+  border-radius: 8px;
+  border: 1px solid #d0b784;
+  background: #ffffff;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+}
+
+.bloc h2 {
+  font-size: 15px;
+  margin: 0 0 6px 0;
+}
+
+.bloc h3 {
+  font-size: 13px;
+  margin: 6px 0 4px 0;
+}
+
+/* Header principal */
+.bloc-header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.header-field {
+  flex: 1 1 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.header-label {
+  font-size: 11px;
+  margin-bottom: 2px;
+}
+
+/* Layout deux colonnes */
+.two-columns {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.col {
+  flex: 1;
+}
+
+.col-left,
+.col-right {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Grille stats finales */
+.stats-finales-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4px 8px;
+  align-items: center;
+}
+
+/* Blessures */
+.blessures-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+}
+
+.blessures-grid label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.blessures-grid input {
+  width: 100%;
+}
+
+/* Inventaire rapide */
+.inv-rapide-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 2fr;
+  gap: 4px 8px;
+}
+
+.small-label {
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* Identité */
+.identite-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px 8px;
+  margin-bottom: 6px;
+}
+
+.identite-grid label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inventaire */
+.inventaire-top {
+  margin-bottom: 6px;
+}
+
+.table-inventaire {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-inventaire th,
+.table-inventaire td {
+  border: 1px solid #e0d0a0;
+  padding: 3px;
+}
+
+.table-inventaire th {
+  background: #f4ecd2;
+  font-size: 12px;
+}
+
+.table-inventaire input[type="text"],
+.table-inventaire input[type="number"] {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.center {
+  text-align: center;
+}
+
+.small-text {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+/* Table stats */
+.table-stats {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 6px;
+}
+
+.table-stats th,
+.table-stats td {
+  border: 1px solid #e0d0a0;
+  padding: 3px;
+  font-size: 12px;
+}
+
+.table-stats th {
+  background: #f4ecd2;
+}
+
+/* Table compétences */
+.table-competences {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 4px;
+}
+
+.table-competences th,
+.table-competences td {
+  border: 1px solid #e0d0a0;
+  padding: 3px;
+  font-size: 12px;
+}
+
+.table-competences th {
+  background: #f4ecd2;
+}
+
+/* Objet */
+.objet-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 8px;
+  margin-bottom: 6px;
+}
+
+.objet-grid label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.table-damage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4px 8px;
+  margin-bottom: 6px;
+}
+
+.table-damage label {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Inputs & textarea généraux */
+input[type="text"],
+input[type="number"],
+textarea {
+  font-size: 12px;
+}
+
+textarea {
+  width: 100%;
+  min-height: 60px;
+  resize: vertical;
+}
+
+/* Petite grille pour les blocs simples */
+.repeat-simple {
+  display: grid;
+  grid-template-columns: 1.2fr 1.8fr 1.8fr;
+  gap: 4px 8px;
+  align-items: center;
+}
+
+.repeat-simple input[type="text"] {
+  width: 100%;
+}
+
+/* Adaptation mobile / petites fenêtres */
+@media (max-width: 900px) {
+  .identite-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .two-columns {
+    flex-direction: column;
+  }
+
+  .objet-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .table-damage {
+    grid-template-columns: 1fr;
+  }
+}

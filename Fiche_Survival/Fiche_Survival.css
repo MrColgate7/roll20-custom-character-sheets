@@ -1,0 +1,173 @@
+/* Reset de base */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4; /* Simule une table */
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.fiche {
+  width: 794px; /* Largeur A4 */
+  height: 1123px; /* Hauteur A4 */
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* Zone 1 : En-tête */
+.zone-header {
+  display: flex;
+  justify-content: flex-start; /* Garde l'avatar proche des champs */
+  gap: 20px; /* Ajoute un espace régulier entre sections */
+  margin-bottom: 20px;
+  align-items: center; /* Centre verticalement l'avatar avec les champs */
+}
+
+.zone-header-infos input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 230px;
+}
+
+.zone-header-infos label {
+  font-weight: bold;
+}
+
+.zone-header-infos input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 230px; /* Largeur augmentée pour une meilleure visibilité */
+}
+
+.zone-header-avatar {
+  flex: 0;
+  width: 100px; /* Taille carrée */
+  height: 100px;
+  background: #ddd;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 12px;
+  color: #888;
+  position: relative;
+}
+
+.zone-header-avatar::after {
+  content: "Image";
+  font-size: 10px;
+  color: #aaa;
+  position: absolute;
+  bottom: 5px;
+}
+
+/* Zone 2 : Statistiques */
+.zone-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Espacement compacté */
+  margin-bottom: 15px; /* Ajout de séparation avec la section suivante */
+}
+
+.stat-paire {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.stat-case {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  background: #fff;
+}
+
+.stat-input {
+  width: 35px; /* Taille compacte */
+  text-align: center;
+  border: 1px solid #ccc;
+}
+
+.stat-labels {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Affiche les labels verticalement */
+  justify-content: center;
+  text-align: left;
+}
+
+.stat-labels span {
+  font-size: 12px;
+  line-height: 1.2;
+}
+
+.stat-labels .label-top {
+  font-weight: bold;
+}
+
+.stat-labels .label-bottom {
+  font-weight: bold;
+}
+
+/* Zone 3 : Équipements et Capacités */
+.zone-equipment {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.zone-sac {
+  position: relative;
+  height: 150px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #f9f9f9 url('/path/to/sac-background.png') no-repeat center center;
+  background-size: contain;
+}
+
+.zone-sac h3 {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.zone-mains {
+  display: flex;
+  justify-content: space-between;
+}
+
+.main {
+  width: 100px;
+  height: 100px;
+  background: #ddd;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 14px;
+  color: #888;
+}
+
+/* Zone des Capacités */
+.zone-capacites {
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.zone-capacites .line {
+  border-bottom: 1px dashed #ccc;
+  flex: 1;
+}

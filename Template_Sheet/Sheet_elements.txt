@@ -1,0 +1,171 @@
+FICHE PERSONNAGE — VERSION INTÉGRALE
+
+1. Contenu
+
+Identité
+- Nom :
+- Prénom :
+- Surnom (ou nom de code) :
+- Âge :
+- Taille :
+- Origine & histoire :
+
+Statistiques
+- Force :
+- Agilité :
+- Technique :
+- Endurance :
+- Intuition :
+- Déduction :
+- Éloquence :
+
+Inventaire
+- Nombre total d’emplacements :
+- Règle :
+  - 1 emplacement = objet taille 1
+  - Objet taille X = X emplacements
+
+Compétences
+- Nombre d’emplacements :
+
+Blessures
+- Tête
+- Torse
+- Bras droit
+- Bras gauche
+- Jambe droite
+- Jambe gauche
+
+
+2. Design
+
+Liste d’onglets
+- Principal
+- Identité
+- Inventaire
+- Compétences
+- Objet
+
+
+--------------------------------------
+Onglet : Principal
+--------------------------------------
+
+Zone Header (Lecture seule)
+- Nom
+- Surnom / Nom de code
+- Prénom
+
+Zone d’action (2 colonnes)
+
+Colonne de droite :
+- Corps (zones de blessures) :
+  - Tête
+  - Torse
+  - Bras droit
+  - Bras gauche
+  - Jambe droite
+  - Jambe gauche
+- Inventaire rapide :
+  - Objets équipés ou prêts à l'usage
+
+Colonne de gauche :
+- Statistiques finales :
+  - Force
+  - Agilité
+  - Technique
+  - Endurance
+  - Intuition
+  - Déduction
+  - Éloquence
+- Compétences actives
+- Compétences passives
+
+
+--------------------------------------
+Onglet : Identité
+--------------------------------------
+Contient :
+- Nom
+- Prénom
+- Surnom / Nom de code
+- Âge
+- Taille
+- Origine & histoire
+
+
+--------------------------------------
+Onglet : Inventaire
+--------------------------------------
+- Emplacements totaux
+- Objets transportés
+- Taille et volume des objets
+- Statut (équipé / rangé)
+
+
+--------------------------------------
+Onglet : Compétences
+--------------------------------------
+
+Bloc Statistiques (détails & calculs)
+Pour chaque statistique :
+- Valeur de base
+- Modificateurs (équipement, état, bonus)
+- Valeur finale
+- Notes
+
+Statistiques :
+- Force
+- Agilité
+- Technique
+- Endurance
+- Intuition
+- Déduction
+- Éloquence
+
+Bloc Compétences :
+- Compétences actives
+- Compétences passives
+- Compétences verrouillées
+- Nombre d’emplacements disponibles
+
+
+--------------------------------------
+Onglet : Objet
+--------------------------------------
+
+Informations générales :
+- Nom de l’objet :
+- Type :
+- Description :
+
+Taille & Inventaire :
+- Taille (en emplacements) :
+- Peut-il s’imbriquer dans un autre objet ? Oui / Non
+- Peut-il accueillir d’autres objets ? Oui / Non
+- Capacité d’emboîtement :
+
+Utilité / Fonction :
+- Usage principal :
+- Utilisations spéciales :
+
+Caractéristiques de dégâts (si applicable) :
+Dégâts de contact :
+- Valeur :
+- Type :
+
+Dégâts de lancé :
+- Valeur :
+- Type :
+
+Dégâts spéciaux :
+- Effets additionnels éventuels :
+
+Compatibilité / Synergies :
+- Objets dans lesquels il peut s’insérer :
+- Objets pouvant s’ajouter sur lui :
+- Bonus quand combiné :
+
+Durabilité :
+- Durabilité max :
+- Durabilité actuelle :
