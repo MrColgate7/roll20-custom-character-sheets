@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="sheet.css">
+    </head>
+    <body>
+        <!-- Inclusion du contenu HTML ici -->
+        <div id="content"></div>
+        <script>
+            fetch("sheet.html")
+                .then(r => r.text())
+                .then(html => {
+                    document.getElementById("content").innerHTML = html;
+                });
+        </script>
+    </body>
+</html>
