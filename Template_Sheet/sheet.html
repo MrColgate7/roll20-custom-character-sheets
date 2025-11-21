@@ -8,8 +8,16 @@
     </header>
 
     <div class="sheet-tabs">
-      <input type="radio" name="sheet-tab" id="tab-main" value="main" checked />
-      <label for="tab-main">Onglet principal</label>
+      <input class="sheet-tab-toggle" type="radio" name="sheet-tab" id="tab-main" value="main" checked />
+      <label class="sheet-tab-label" for="tab-main" data-i18n="tab_main">Principal</label>
+      <input class="sheet-tab-toggle" type="radio" name="sheet-tab" id="tab-identite" value="identite" />
+      <label class="sheet-tab-label" for="tab-identite" data-i18n="tab_identite">Identité</label>
+      <input class="sheet-tab-toggle" type="radio" name="sheet-tab" id="tab-inventaire" value="inventaire" />
+      <label class="sheet-tab-label" for="tab-inventaire" data-i18n="tab_inventaire">Inventaire</label>
+      <input class="sheet-tab-toggle" type="radio" name="sheet-tab" id="tab-competences" value="competences" />
+      <label class="sheet-tab-label" for="tab-competences" data-i18n="tab_competences">Compétences</label>
+      <input class="sheet-tab-toggle" type="radio" name="sheet-tab" id="tab-objet" value="objet" />
+      <label class="sheet-tab-label" for="tab-objet" data-i18n="tab_objet">Objet</label>
     </div>
 
     <div class="sheet-tab-content" data-tab="main">
@@ -19,54 +27,58 @@
           <span class="sheet-note">Zone Header</span>
         </div>
         <div class="sheet-identity-header">
-          <label>Nom<input type="text" name="attr_nom" /></label>
-          <label>Surnom<input type="text" name="attr_surnom" /></label>
-          <label>Prénom<input type="text" name="attr_prenom" /></label>
-        </div>
-        <div class="sheet-grid-2 sheet-identity-details">
-          <div class="sheet-stack">
-            <label>Âge :</label> <input type="number" name="attr_age" min="0" />
-            <label>Taille :</label> <input type="number" name="attr_taille" min="0" />
-          </div>
-          <div class="sheet-stack">
-            <label>Origine &amp; histoire :</label>
-            <textarea name="attr_origine" rows="6"></textarea>
-          </div>
+          <label>Nom<input class="sheet-readonly" type="text" name="attr_nom" readonly /></label>
+          <label>Surnom / Nom de code<input class="sheet-readonly" type="text" name="attr_surnom" readonly /></label>
+          <label>Prénom<input class="sheet-readonly" type="text" name="attr_prenom" readonly /></label>
         </div>
       </section>
 
-      <section class="sheet-card">
-        <h2 data-i18n="tab_stats">Statistiques</h2>
-        <div class="sheet-grid-3 sheet-stats-grid">
-          <div class="sheet-stat">
-            <label>Force :</label><input type="number" name="attr_force" min="0" value="0" />
+      <div class="sheet-grid-2">
+        <section class="sheet-card">
+          <h2 data-i18n="tab_stats">Statistiques finales</h2>
+          <div class="sheet-grid-3 sheet-stats-grid">
+            <div class="sheet-stat">
+              <label>Force :</label><input type="number" name="attr_force_finale" min="0" value="0" />
+            </div>
+            <div class="sheet-stat">
+              <label>Agilité :</label><input type="number" name="attr_agilite_finale" min="0" value="0" />
+            </div>
+            <div class="sheet-stat">
+              <label>Technique :</label><input type="number" name="attr_technique_finale" min="0" value="0" />
+            </div>
+            <div class="sheet-stat">
+              <label>Endurance :</label><input type="number" name="attr_endurance_finale" min="0" value="0" />
+            </div>
+            <div class="sheet-stat">
+              <label>Intuition :</label><input type="number" name="attr_intuition_finale" min="0" value="0" />
+            </div>
+            <div class="sheet-stat">
+              <label>Déduction :</label><input type="number" name="attr_deduction_finale" min="0" value="0" />
+            </div>
+            <div class="sheet-stat">
+              <label>Éloquence :</label><input type="number" name="attr_eloquence_finale" min="0" value="0" />
+            </div>
           </div>
-          <div class="sheet-stat">
-            <label>Agilité :</label><input type="number" name="attr_agilite" min="0" value="0" />
+        </section>
+
+        <section class="sheet-card">
+          <h2>Corps</h2>
+          <div class="sheet-grid-3 sheet-wounds">
+            <label>Tête</label> <input type="text" name="attr_blessure_tete" />
+            <label>Torse</label> <input type="text" name="attr_blessure_torse" />
+            <label>Bras droit</label> <input type="text" name="attr_blessure_bd" />
+            <label>Bras gauche</label> <input type="text" name="attr_blessure_bg" />
+            <label>Jambe droite</label> <input type="text" name="attr_blessure_jd" />
+            <label>Jambe gauche</label> <input type="text" name="attr_blessure_jg" />
           </div>
-          <div class="sheet-stat">
-            <label>Technique :</label><input type="number" name="attr_technique" min="0" value="0" />
-          </div>
-          <div class="sheet-stat">
-            <label>Endurance :</label><input type="number" name="attr_endurance" min="0" value="0" />
-          </div>
-          <div class="sheet-stat">
-            <label>Intuition :</label><input type="number" name="attr_intuition" min="0" value="0" />
-          </div>
-          <div class="sheet-stat">
-            <label>Déduction :</label><input type="number" name="attr_deduction" min="0" value="0" />
-          </div>
-          <div class="sheet-stat">
-            <label>Éloquence :</label><input type="number" name="attr_eloquence" min="0" value="0" />
-          </div>
-        </div>
-      </section>
+        </section>
+      </div>
 
       <div class="sheet-action-grid">
         <div class="sheet-column sheet-column--left">
           <section class="sheet-card">
             <div class="sheet-row sheet-row--between">
-              <h3>Compétences (x emplacements)</h3>
+              <h3>Compétences (emplacements)</h3>
               <input type="number" name="attr_competences_emplacements" min="0" value="0" class="sheet-compact" />
             </div>
           </section>
@@ -74,6 +86,7 @@
           <section class="sheet-card">
             <div class="sheet-card-heading">
               <h3>Compétences actives</h3>
+              <span class="sheet-pill">Principal</span>
             </div>
             <fieldset class="repeating_comp_actives">
               <div class="sheet-row sheet-item">
@@ -87,6 +100,7 @@
           <section class="sheet-card">
             <div class="sheet-card-heading">
               <h3>Compétences passives</h3>
+              <span class="sheet-pill">Principal</span>
             </div>
             <fieldset class="repeating_comp_passives">
               <div class="sheet-row sheet-item">
@@ -99,18 +113,6 @@
         </div>
 
         <div class="sheet-column sheet-column--right">
-          <section class="sheet-card">
-            <h3>Corps</h3>
-            <div class="sheet-grid-3 sheet-wounds">
-              <label>Tête</label> <input type="text" name="attr_blessure_tete" />
-              <label>Torse</label> <input type="text" name="attr_blessure_torse" />
-              <label>Bras droit</label> <input type="text" name="attr_blessure_bd" />
-              <label>Bras gauche</label> <input type="text" name="attr_blessure_bg" />
-              <label>Jambe Droite</label> <input type="text" name="attr_blessure_jd" />
-              <label>Jambe Gauche</label> <input type="text" name="attr_blessure_jg" />
-            </div>
-          </section>
-
           <section class="sheet-card">
             <div class="sheet-card-heading">
               <div>
@@ -132,6 +134,240 @@
           </section>
         </div>
       </div>
+    </div>
+
+    <div class="sheet-tab-content" data-tab="identite">
+      <section class="sheet-card sheet-identity">
+        <div class="sheet-card-heading">
+          <h2 data-i18n="tab_identite">Identité</h2>
+          <span class="sheet-note">Informations complètes</span>
+        </div>
+        <div class="sheet-identity-header">
+          <label>Nom<input type="text" name="attr_nom" /></label>
+          <label>Surnom / Nom de code<input type="text" name="attr_surnom" /></label>
+          <label>Prénom<input type="text" name="attr_prenom" /></label>
+        </div>
+        <div class="sheet-grid-2 sheet-identity-details">
+          <div class="sheet-stack">
+            <label>Âge :</label> <input type="number" name="attr_age" min="0" />
+            <label>Taille :</label> <input type="number" name="attr_taille" min="0" />
+          </div>
+          <div class="sheet-stack">
+            <label>Origine &amp; histoire :</label>
+            <textarea name="attr_origine" rows="8"></textarea>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="sheet-tab-content" data-tab="inventaire">
+      <section class="sheet-card">
+        <div class="sheet-card-heading">
+          <div>
+            <h2 data-i18n="tab_inventaire">Inventaire</h2>
+            <p class="sheet-mini-note">1 emplacement = objet taille 1. Objet taille X = X emplacements.</p>
+          </div>
+          <div class="sheet-row sheet-row--between sheet-capacity">
+            <label>Emplacements totaux</label>
+            <input type="number" name="attr_emplacements_totaux" min="0" value="0" class="sheet-compact" />
+          </div>
+        </div>
+        <div class="sheet-list">
+          <fieldset class="repeating_inventaire_complet">
+            <div class="sheet-item">
+              <div class="sheet-row">
+                <input type="text" name="attr_nom_objet_complet" placeholder="Nom de l’objet" />
+                <input type="number" name="attr_taille_objet_complet" min="1" value="1" class="sheet-compact" title="Taille (empl.)" />
+                <input type="number" name="attr_volume_objet" min="0" value="0" class="sheet-compact" title="Volume" />
+                <select name="attr_statut_objet" class="sheet-compact">
+                  <option value="equipe">Équipé</option>
+                  <option value="range">Rangé</option>
+                </select>
+              </div>
+              <textarea name="attr_description_objet_complet" placeholder="Description et notes"></textarea>
+            </div>
+          </fieldset>
+        </div>
+      </section>
+    </div>
+
+    <div class="sheet-tab-content" data-tab="competences">
+      <section class="sheet-card">
+        <div class="sheet-card-heading">
+          <h2 data-i18n="tab_stats">Statistiques</h2>
+          <span class="sheet-note">Détails &amp; calculs</span>
+        </div>
+        <div class="sheet-list">
+          <div class="sheet-stat-detail">
+            <label>Force</label>
+            <input type="number" name="attr_force_base" placeholder="Base" />
+            <input type="number" name="attr_force_equipement" placeholder="Équipement" />
+            <input type="number" name="attr_force_bonus" placeholder="Bonus" />
+            <input type="number" name="attr_force_finale" placeholder="Finale" />
+            <textarea class="sheet-stat-note" name="attr_force_notes" placeholder="Notes"></textarea>
+          </div>
+          <div class="sheet-stat-detail">
+            <label>Agilité</label>
+            <input type="number" name="attr_agilite_base" placeholder="Base" />
+            <input type="number" name="attr_agilite_equipement" placeholder="Équipement" />
+            <input type="number" name="attr_agilite_bonus" placeholder="Bonus" />
+            <input type="number" name="attr_agilite_finale" placeholder="Finale" />
+            <textarea class="sheet-stat-note" name="attr_agilite_notes" placeholder="Notes"></textarea>
+          </div>
+          <div class="sheet-stat-detail">
+            <label>Technique</label>
+            <input type="number" name="attr_technique_base" placeholder="Base" />
+            <input type="number" name="attr_technique_equipement" placeholder="Équipement" />
+            <input type="number" name="attr_technique_bonus" placeholder="Bonus" />
+            <input type="number" name="attr_technique_finale" placeholder="Finale" />
+            <textarea class="sheet-stat-note" name="attr_technique_notes" placeholder="Notes"></textarea>
+          </div>
+          <div class="sheet-stat-detail">
+            <label>Endurance</label>
+            <input type="number" name="attr_endurance_base" placeholder="Base" />
+            <input type="number" name="attr_endurance_equipement" placeholder="Équipement" />
+            <input type="number" name="attr_endurance_bonus" placeholder="Bonus" />
+            <input type="number" name="attr_endurance_finale" placeholder="Finale" />
+            <textarea class="sheet-stat-note" name="attr_endurance_notes" placeholder="Notes"></textarea>
+          </div>
+          <div class="sheet-stat-detail">
+            <label>Intuition</label>
+            <input type="number" name="attr_intuition_base" placeholder="Base" />
+            <input type="number" name="attr_intuition_equipement" placeholder="Équipement" />
+            <input type="number" name="attr_intuition_bonus" placeholder="Bonus" />
+            <input type="number" name="attr_intuition_finale" placeholder="Finale" />
+            <textarea class="sheet-stat-note" name="attr_intuition_notes" placeholder="Notes"></textarea>
+          </div>
+          <div class="sheet-stat-detail">
+            <label>Déduction</label>
+            <input type="number" name="attr_deduction_base" placeholder="Base" />
+            <input type="number" name="attr_deduction_equipement" placeholder="Équipement" />
+            <input type="number" name="attr_deduction_bonus" placeholder="Bonus" />
+            <input type="number" name="attr_deduction_finale" placeholder="Finale" />
+            <textarea class="sheet-stat-note" name="attr_deduction_notes" placeholder="Notes"></textarea>
+          </div>
+          <div class="sheet-stat-detail">
+            <label>Éloquence</label>
+            <input type="number" name="attr_eloquence_base" placeholder="Base" />
+            <input type="number" name="attr_eloquence_equipement" placeholder="Équipement" />
+            <input type="number" name="attr_eloquence_bonus" placeholder="Bonus" />
+            <input type="number" name="attr_eloquence_finale" placeholder="Finale" />
+            <textarea class="sheet-stat-note" name="attr_eloquence_notes" placeholder="Notes"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <section class="sheet-card">
+        <div class="sheet-fieldset-heading">
+          <h3>Compétences</h3>
+          <div class="sheet-row sheet-row--between sheet-capacity">
+            <label>Emplacements disponibles</label>
+            <input type="number" name="attr_competences_disponibles" min="0" value="0" class="sheet-compact" />
+          </div>
+        </div>
+        <div class="sheet-grid-2">
+          <div>
+            <div class="sheet-card-heading">
+              <h4>Actives</h4>
+              <span class="sheet-pill">Bloc détaillé</span>
+            </div>
+            <fieldset class="repeating_comp_actives">
+              <div class="sheet-row sheet-item">
+                <input type="text" name="attr_nom_competence_active" placeholder="Nom" />
+                <input type="text" name="attr_description_competence_active" placeholder="Description" />
+                <input type="number" name="attr_niveau_competence_active" min="0" value="0" class="sheet-compact" />
+              </div>
+            </fieldset>
+          </div>
+          <div>
+            <div class="sheet-card-heading">
+              <h4>Passives</h4>
+              <span class="sheet-pill">Bloc détaillé</span>
+            </div>
+            <fieldset class="repeating_comp_passives">
+              <div class="sheet-row sheet-item">
+                <input type="text" name="attr_nom_competence_passive" placeholder="Nom" />
+                <input type="text" name="attr_description_competence_passive" placeholder="Description" />
+                <input type="number" name="attr_niveau_competence_passive" min="0" value="0" class="sheet-compact" />
+              </div>
+            </fieldset>
+          </div>
+        </div>
+        <div class="sheet-card-heading">
+          <h4>Compétences verrouillées</h4>
+        </div>
+        <fieldset class="repeating_comp_verrouillees">
+          <div class="sheet-row sheet-item">
+            <input type="text" name="attr_nom_competence_verrouillee" placeholder="Nom" />
+            <input type="text" name="attr_condition_competence_verrouillee" placeholder="Condition / Déblocage" />
+          </div>
+        </fieldset>
+      </section>
+    </div>
+
+    <div class="sheet-tab-content" data-tab="objet">
+      <section class="sheet-card">
+        <div class="sheet-card-heading">
+          <h2 data-i18n="tab_objet">Objet</h2>
+          <span class="sheet-note">Données d’un objet unique</span>
+        </div>
+
+        <div class="sheet-object-grid">
+          <label>Nom de l’objet<input type="text" name="attr_objet_nom" /></label>
+          <label>Type<input type="text" name="attr_objet_type" /></label>
+          <label>Description<textarea name="attr_objet_description" rows="3"></textarea></label>
+          <label>Usage principal<textarea name="attr_objet_usage" rows="3"></textarea></label>
+        </div>
+
+        <h3>Taille &amp; Inventaire</h3>
+        <div class="sheet-grid-4">
+          <label>Taille (empl.)<input type="number" name="attr_objet_taille" min="0" value="0" /></label>
+          <label>Capacité d’emboîtement<input type="number" name="attr_objet_capacite" min="0" value="0" /></label>
+          <label>Peut s’imbriquer ?
+            <select name="attr_objet_peut_imbriquer">
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+          </label>
+          <label>Peut accueillir ?
+            <select name="attr_objet_peut_accueillir">
+              <option value="oui">Oui</option>
+              <option value="non">Non</option>
+            </select>
+          </label>
+        </div>
+
+        <h3>Utilisations spéciales</h3>
+        <textarea name="attr_objet_utilisations" rows="3"></textarea>
+
+        <h3>Dégâts</h3>
+        <div class="sheet-grid-2">
+          <div class="sheet-card">
+            <h4>Contact</h4>
+            <label>Valeur<input type="text" name="attr_degats_contact_valeur" /></label>
+            <label>Type<input type="text" name="attr_degats_contact_type" /></label>
+          </div>
+          <div class="sheet-card">
+            <h4>Lancé</h4>
+            <label>Valeur<input type="text" name="attr_degats_lance_valeur" /></label>
+            <label>Type<input type="text" name="attr_degats_lance_type" /></label>
+          </div>
+        </div>
+        <label>Effets additionnels<textarea name="attr_degats_speciaux" rows="3"></textarea></label>
+
+        <h3>Compatibilité &amp; synergies</h3>
+        <div class="sheet-grid-3">
+          <label>Peut s’insérer dans<textarea name="attr_objets_conteneurs" rows="3"></textarea></label>
+          <label>Peut recevoir<textarea name="attr_objets_accueillis" rows="3"></textarea></label>
+          <label>Bonus quand combiné<textarea name="attr_objet_bonus" rows="3"></textarea></label>
+        </div>
+
+        <h3>Durabilité</h3>
+        <div class="sheet-grid-2">
+          <label>Durabilité max<input type="number" name="attr_objet_durabilite_max" min="0" value="0" /></label>
+          <label>Durabilité actuelle<input type="number" name="attr_objet_durabilite_actuelle" min="0" value="0" /></label>
+        </div>
+      </section>
     </div>
   </div>
 </div>

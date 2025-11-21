@@ -3,9 +3,11 @@
   "refresh": "Rafraîchir",
   "view_avatar": "Voir avatar",
   "view_token": "Voir token",
+  "tab_main": "Principal",
   "tab_identite": "Identité",
   "tab_stats": "Statistiques",
   "tab_competences": "Compétences",
   "tab_inventaire": "Inventaire",
+  "tab_objet": "Objet",
   "tab_blessures": "Blessures"
 }
