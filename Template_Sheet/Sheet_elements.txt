@@ -44,4 +44,3 @@ Design :
             - colonne de gauche :
                 - Zone des compétences actives
                 - Zones des compétences passives
-Parchemin + Griffure (BGM)
