@@ -1,31 +1,35 @@
-.charsheet .sheet-wrapper { font-family: system-ui, sans-serif; }
-.charsheet .sheet-a4 { max-width: 900px; margin: 0 auto; padding: 10px; background: #fff; border-radius: 8px; }
+.charsheet .sheet-wrapper { font-family: "Cormorant Garamond", Georgia, serif; color: #2e1c15; }
+.charsheet .sheet-theme-parchment { position: relative; background: radial-gradient(ellipse at top left, #f4e9c6, #e1d2a3 45%, #d7c593); padding: 16px; }
+.charsheet .sheet-theme-parchment::before { content: ""; display: block; position: absolute; inset: 0; pointer-events: none; background: repeating-linear-gradient(45deg, transparent 0, transparent 10px, rgba(0,0,0,0.03) 10px, rgba(0,0,0,0.03) 12px); mix-blend-mode: multiply; border-radius: 12px; }
+.charsheet .sheet-a4 { position: relative; max-width: 900px; margin: 0 auto; padding: 14px; background: rgba(255, 255, 255, 0.92); border-radius: 14px; box-shadow: 0 8px 30px rgba(0,0,0,0.18); }
 
-.sheet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
-.sheet-tools { display: flex; gap: 5px; }
-.sheet-btn { cursor: pointer; border-radius: 6px; border: 1px solid #888; background: #f2f2f2; padding: 3px 8px; }
-.sheet-btn:hover { background: #e9e9e9; }
+.sheet-subtitle { margin: 0; font-size: 0.9rem; letter-spacing: 0.08em; text-transform: uppercase; color: #7a5e3c; }
 
-.sheet-tab-toggle { display: none; }
-.sheet-tab { display: inline-block; border: 1px solid #ccc; padding: 5px 10px; border-radius: 8px; margin-right: 6px; cursor: pointer; }
-.sheet-tab:hover { background: #f9f9f9; }
-#tab-identite:checked + label,
-#tab-stats:checked + label,
-#tab-competences:checked + label,
-#tab-inventaire:checked + label,
-#tab-blessures:checked + label { background: #ddd; border-color: #666; }
+h1, h2 { font-family: "Cinzel", "Cormorant Garamond", serif; letter-spacing: 0.04em; }
+h2 { border-bottom: 2px solid #c9b27c; padding-bottom: 4px; margin-bottom: 8px; }
 
-.sheet-pages { margin-top: 10px; }
-.sheet-page { display: none; }
-#tab-identite:checked ~ .sheet-pages .sheet-page--identite,
-#tab-stats:checked ~ .sheet-pages .sheet-page--stats,
-#tab-competences:checked ~ .sheet-pages .sheet-page--competences,
-#tab-inventaire:checked ~ .sheet-pages .sheet-page--inventaire,
-#tab-blessures:checked ~ .sheet-pages .sheet-page--blessures { display: block; }
+.sheet-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; gap: 10px; }
+
+.sheet-sections { display: flex; flex-direction: column; gap: 12px; }
 
 .sheet-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-.sheet-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem 1rem; }
-.sheet-row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 4px; }
+.sheet-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.5rem 1rem; }
+.sheet-row { display: flex; gap: 0.5rem; align-items: center; margin-bottom: 6px; flex-wrap: wrap; }
+.sheet-row--between { justify-content: space-between; }
+.sheet-stack { display: flex; flex-direction: column; gap: 4px; }
+.sheet-item { background: rgba(255, 255, 255, 0.65); padding: 8px; border-radius: 8px; border: 1px dashed #c2a874; flex: 1; }
 
-.sheet-rolltemplate-showimg .sheet-showimg { text-align:center; }
-.sheet-rolltemplate-showimg .sheet-img { max-width: 300px; max-height: 300px; border-radius: 8px; margin-top: 4px; }
+.sheet-stats-grid .sheet-stat { background: rgba(255, 255, 255, 0.7); border: 1px solid #c2a874; border-radius: 10px; padding: 10px; box-shadow: inset 0 1px 0 #f6edd4; }
+.sheet-wounds { align-items: center; }
+
+.sheet-card { background: rgba(255, 255, 255, 0.78); border: 1px solid #c2a874; border-radius: 10px; padding: 10px; box-shadow: inset 0 1px 0 #f6edd4; }
+.sheet-stat { text-align: center; }
+.sheet-stat label { display: block; font-weight: 700; letter-spacing: 0.03em; }
+.sheet-card input,
+.sheet-card textarea { width: 100%; border: 1px solid #b08a5c; border-radius: 6px; padding: 4px; background: rgba(255,255,255,0.9); }
+.sheet-card textarea { resize: vertical; min-height: 60px; }
+.sheet-compact { max-width: 80px; }
+
+label { font-weight: 600; color: #3b2a1c; }
+
+.sheet-capacity { margin-bottom: 8px; }
