@@ -1,0 +1,93 @@
+{
+  "name": "SDC - Système De Combat",
+  "version": "3.0",
+  "description": "Character sheet custom pour le Système De Combat (SDC), conçu pour Roll20",
+  "author": "Yanis",
+  "roll20userId": "1234567890",
+  "category": "Game",
+  "subCategory": "RPG",
+  "preview": "preview.png",
+  "playersCanView": true,
+  "sheet": "sheet.html",
+  "css": "sheet.css",
+  "js": "Character_metadata.js",
+  "rolltemplates": "roll-templates.html",
+  "assets": [
+    {
+      "name": "sheet.html",
+      "type": "html"
+    },
+    {
+      "name": "sheet.css",
+      "type": "css"
+    },
+    {
+      "name": "Character_metadata.js",
+      "type": "js"
+    }
+  ],
+  "fields": {
+    "character_firstname": {
+      "type": "text",
+      "label": "Prénom",
+      "default": ""
+    },
+    "character_surname": {
+      "type": "text",
+      "label": "Surnom",
+      "default": ""
+    },
+    "character_lastname": {
+      "type": "text",
+      "label": "Nom",
+      "default": ""
+    },
+    "initiative": {
+      "type": "number",
+      "label": "INITIATIVE",
+      "default": 0
+    },
+    "inventory": {
+      "type": "repeating",
+      "label": "Inventaire",
+      "fields": {
+        "item_name": {
+          "type": "text",
+          "label": "Nom de l'objet",
+          "default": ""
+        },
+        "item_size": {
+          "type": "number",
+          "label": "Taille",
+          "default": 1
+        },
+        "item_desc": {
+          "type": "text",
+          "label": "Description",
+          "default": ""
+        }
+      }
+    },
+    "competences": {
+      "type": "repeating",
+      "label": "Compétences",
+      "fields": {
+        "comp_name": {
+          "type": "text",
+          "label": "Nom",
+          "default": ""
+        },
+        "comp_cost": {
+          "type": "number",
+          "label": "Coût Endurance",
+          "default": 0
+        },
+        "comp_effect": {
+          "type": "text",
+          "label": "Effet",
+          "default": ""
+        }
+      }
+    }
+  }
+}

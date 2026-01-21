@@ -2,8 +2,20 @@
 <!-- Layout A4 Paysage: 3508 x 2480 px -->
 
 <div class="sdc-sheet">
+  <!-- ========== TABS ========== -->
+  <div class="sdc-tabs">
+    <button class="tab-button active" data-tab="principal">Principal</button>
+    <button class="tab-button" data-tab="identite">Identité</button>
+    <button class="tab-button" data-tab="inventaire">Inventaire</button>
+    <button class="tab-button" data-tab="competences">Compétences</button>
+    <button class="tab-button" data-tab="objet">Objet</button>
+  </div>
 
-<!-- ========== HEADER ========== -->
+  <!-- ========== TAB CONTENT ========== -->
+  <div class="sdc-tab-content">
+    <!-- Principal Tab -->
+    <div id="tab-principal" class="tab-pane active">
+      <header class="sdc-header">
     <header class="sdc-header">
         <div class="identity-block">
             <input type="text" name="attr_character_firstname" placeholder="Prénom" class="input-firstname">
@@ -366,91 +378,189 @@
 
     <!-- ========== FOOTER ========== -->
     <footer class="sdc-footer">
-
-        <!-- COMPÉTENCES -->
-        <section class="col-competences">
-            <h2 class="group-title">COMPÉTENCES</h2>
-            <div class="competences-list">
-                <fieldset class="repeating_competences">
-                    <div class="competence-item">
-                        <input type="text" name="attr_comp_name" placeholder="Nom" class="comp-name">
-                        <input type="number" name="attr_comp_cost" value="0" min="0" class="comp-cost" title="Coût Endurance">
-                        <textarea name="attr_comp_effect" placeholder="Effet de la compétence" class="comp-effect"></textarea>
-                        <button type="roll" name="roll_competence" value="&{template:sdc} {{title=Compétence}} {{subtitle=@{comp_name}}} {{name=@{character_firstname}}} {{effect=@{comp_effect}}} {{cost=@{comp_cost} Endurance}}" class="btn btn-comp">✨ UTILISER</button>
-                    </div>
-                </fieldset>
-            </div>
-        </section>
-
-        <!-- INVENTAIRE RAPIDE -->
-        <section class="col-quick-inventory">
-            <h2 class="group-title">INVENTAIRE RAPIDE <span class="subtitle">(Action Mineure)</span></h2>
-            <div class="quick-inventory-row">
-
-                <!-- Slots 1-3 (gauche) -->
-                <div class="quick-slots-left">
-                    <div class="quick-slot">
-                        <span class="slot-number">1</span>
-                        <input type="text" name="attr_quick_1" placeholder="—">
-                        <button type="action" name="act_unequip_1" class="btn btn-unequip" title="Ranger dans le sac">🎒→📦</button>
-                    </div>
-                    <div class="quick-slot">
-                        <span class="slot-number">2</span>
-                        <input type="text" name="attr_quick_2" placeholder="—">
-                        <button type="action" name="act_unequip_2" class="btn btn-unequip" title="Ranger dans le sac">🎒→📦</button>
-                    </div>
-                    <div class="quick-slot">
-                        <span class="slot-number">3</span>
-                        <input type="text" name="attr_quick_3" placeholder="—">
-                        <button type="action" name="act_unequip_3" class="btn btn-unequip" title="Ranger dans le sac">🎒→📦</button>
-                    </div>
-                </div>
-
-                <!-- Mains (centre, collées) -->
-                <div class="hands-block">
-                    <div class="hand hand-left">
-                        <span class="hand-icon">🤛</span>
-                        <span class="hand-label">MAIN G</span>
-                        <input type="text" name="attr_hand_left" placeholder="—">
-                        <textarea name="attr_hand_left_desc" placeholder="Stats"></textarea>
-                    </div>
-                    <div class="hand hand-right">
-                        <span class="hand-icon">🤜</span>
-                        <span class="hand-label">MAIN D</span>
-                        <input type="text" name="attr_hand_right" placeholder="—">
-                        <textarea name="attr_hand_right_desc" placeholder="Stats"></textarea>
-                    </div>
-                    <div class="two-handed-indicator">
-                        <input type="checkbox" name="attr_two_handed" value="1">
-                        <span>Arme à 2 mains</span>
-                    </div>
-                </div>
-
-                <!-- Slots 4-6 (droite) -->
-                <div class="quick-slots-right">
-                    <div class="quick-slot">
-                        <span class="slot-number">4</span>
-                        <input type="text" name="attr_quick_4" placeholder="—">
-                        <button type="action" name="act_unequip_4" class="btn btn-unequip" title="Ranger dans le sac">🎒→📦</button>
-                    </div>
-                    <div class="quick-slot">
-                        <span class="slot-number">5</span>
-                        <input type="text" name="attr_quick_5" placeholder="—">
-                        <button type="action" name="act_unequip_5" class="btn btn-unequip" title="Ranger dans le sac">🎒→📦</button>
-                    </div>
-                    <div class="quick-slot">
-                        <span class="slot-number">6</span>
-                        <input type="text" name="attr_quick_6" placeholder="—">
-                        <button type="action" name="act_unequip_6" class="btn btn-unequip" title="Ranger dans le sac">🎒→📦</button>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
+    
     </footer>
+  </div>
 
-<!-- ========== ATTRIBUTS CACHÉS ========== -->
+  <!-- ========== IDENTITÉ TAB ========== -->
+  <div id="tab-identite" class="tab-pane">
+    <h2 class="group-title">IDENTITÉ</h2>
+    <div class="identity-content">
+      <div class="identity-form">
+        <div class="form-group">
+          <label>Nom</label>
+          <input type="text" name="attr_character_lastname" placeholder="Nom">
+        </div>
+        <div class="form-group">
+          <label>Prénom</label>
+          <input type="text" name="attr_character_firstname" placeholder="Prénom">
+        </div>
+        <div class="form-group">
+          <label>Surnom / Nom de code</label>
+          <input type="text" name="attr_character_surname" placeholder="Surnom / Nom de code">
+        </div>
+        <div class="form-group">
+          <label>Âge</label>
+          <input type="number" name="attr_character_age" placeholder="Âge">
+        </div>
+        <div class="form-group">
+          <label>Taille</label>
+          <input type="text" name="attr_character_size" placeholder="Taille">
+        </div>
+        <div class="form-group">
+          <label>Origine & histoire</label>
+          <textarea name="attr_character_origin" placeholder="Origine & histoire"></textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== INVENTAIRE TAB ========== -->
+  <div id="tab-inventaire" class="tab-pane">
+    <h2 class="group-title">INVENTAIRE</h2>
+    <div class="inventory-content">
+      <div class="inventory-capacity">
+        Capacité: <span name="attr_inv_used">0</span> / <span name="attr_inv_max">20</span>
+      </div>
+      <div class="inventory-grid">
+        <fieldset class="repeating_inventaire">
+          <div class="inventory-item">
+            <input type="text" name="attr_item_name" placeholder="Nom de l'objet" class="item-name">
+            <input type="number" name="attr_item_size" value="1" min="1" max="10" class="item-size" title="Taille">
+            <textarea name="attr_item_desc" placeholder="Description / Stats" class="item-desc"></textarea>
+            <button type="action" name="act_equip_item" class="btn btn-equip" title="Équiper dans inventaire rapide">📦→🎒</button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== COMPÉTENCES TAB ========== -->
+  <div id="tab-competences" class="tab-pane">
+    <h2 class="group-title">COMPÉTENCES</h2>
+    <div class="competences-content">
+      <div class="competences-list">
+        <fieldset class="repeating_competences">
+          <div class="competence-item">
+            <input type="text" name="attr_comp_name" placeholder="Nom" class="comp-name">
+            <input type="number" name="attr_comp_cost" value="0" min="0" class="comp-cost" title="Coût Endurance">
+            <textarea name="attr_comp_effect" placeholder="Effet de la compétence" class="comp-effect"></textarea>
+            <button type="roll" name="roll_competence" value="&{template:sdc} {{title=Compétence}} {{subtitle=@{comp_name}}} {{name=@{character_firstname}}} {{effect=@{comp_effect}}} {{cost=@{comp_cost} Endurance}}" class="btn btn-comp">✨ UTILISER</button>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== OBJET TAB ========== -->
+  <div id="tab-objet" class="tab-pane">
+    <h2 class="group-title">OBJET</h2>
+    <div class="object-content">
+      <div class="object-info">
+        <div class="form-group">
+          <label>Nom de l'objet</label>
+          <input type="text" name="attr_object_name" placeholder="Nom de l'objet">
+        </div>
+        <div class="form-group">
+          <label>Type</label>
+          <input type="text" name="attr_object_type" placeholder="Type">
+        </div>
+        <div class="form-group">
+          <label>Description</label>
+          <textarea name="attr_object_desc" placeholder="Description"></textarea>
+        </div>
+      </div>
+      
+      <div class="object-size">
+        <h3>Taille & Inventaire</h3>
+        <div class="form-group">
+          <label>Taille (en emplacements)</label>
+          <input type="number" name="attr_object_size" value="1" min="1" max="10">
+        </div>
+        <div class="form-group">
+          <label>Peut-il s’imbriquer dans un autre objet ?</label>
+          <select name="attr_object_can_embed">
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Peut-il accueillir d’autres objets ?</label>
+          <select name="attr_object_can_hold">
+            <option value="oui">Oui</option>
+            <option value="non">Non</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Capacité d’emboîtement</label>
+          <input type="number" name="attr_object_embed_capacity" value="0">
+        </div>
+      </div>
+      
+      <div class="object-usage">
+        <h3>Utilité / Fonction</h3>
+        <div class="form-group">
+          <label>Usage principal</label>
+          <input type="text" name="attr_object_main_usage" placeholder="Usage principal">
+        </div>
+        <div class="form-group">
+          <label>Utilisations spéciales</label>
+          <textarea name="attr_object_special_uses" placeholder="Utilisations spéciales"></textarea>
+        </div>
+      </div>
+      
+      <div class="object-damage">
+        <h3>Caractéristiques de dégâts</h3>
+        <div class="form-group">
+          <label>Dégâts de contact</label>
+          <div class="damage-row">
+            <input type="number" name="attr_object_contact_damage" placeholder="Valeur">
+            <input type="text" name="attr_object_contact_type" placeholder="Type">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Dégâts de lancé</label>
+          <div class="damage-row">
+            <input type="number" name="attr_object_throw_damage" placeholder="Valeur">
+            <input type="text" name="attr_object_throw_type" placeholder="Type">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Dégâts spéciaux</label>
+          <textarea name="attr_object_special_damage" placeholder="Effets additionnels éventuels"></textarea>
+        </div>
+      </div>
+      
+      <div class="object-compatibility">
+        <h3>Compatibilité / Synergies</h3>
+        <div class="form-group">
+          <label>Objets dans lesquels il peut s’insérer</label>
+          <textarea name="attr_object_can_embed_in" placeholder="Objets compatibles"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Objets pouvant s’ajouter sur lui</label>
+          <textarea name="attr_object_can_be_added_to" placeholder="Objets pouvant s'ajouter"></textarea>
+        </div>
+        <div class="form-group">
+          <label>Bonus quand combiné</label>
+          <textarea name="attr_object_combination_bonus" placeholder="Bonus de combinaison"></textarea>
+        </div>
+      </div>
+      
+      <div class="object-durability">
+        <h3>Durabilité</h3>
+        <div class="form-group">
+          <label>Durabilité max</label>
+          <input type="number" name="attr_object_max_durability" value="100">
+        </div>
+        <div class="form-group">
+          <label>Durabilité actuelle</label>
+          <input type="number" name="attr_object_current_durability" value="100">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     <input type="hidden" name="attr_force_die" value="10">
     <input type="hidden" name="attr_force_mc" value="1">
     <input type="hidden" name="attr_agilite_die" value="10">
@@ -779,4 +889,26 @@ on('sheet:opened', function() {
     checkLethal();
 });
 
+</script>
+
+<!-- ========== TAB FUNCTIONALITY ========== -->
+<script>
+// Tab functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabPanes = document.querySelectorAll('.tab-pane');
+    
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and panes
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabPanes.forEach(pane => pane.classList.remove('active'));
+            
+            // Add active class to clicked button and corresponding pane
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById('tab-' + tabId).classList.add('active');
+        });
+    });
+});
 </script>

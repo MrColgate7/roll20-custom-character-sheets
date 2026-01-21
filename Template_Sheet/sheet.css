@@ -3,6 +3,57 @@
    Layout A4 Paysage: 3508 x 2480 px
    ================================================================ */
 
+/* ===== TABS ===== */
+.charsheet .sdc-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+    background: var(--color-dark);
+    padding: 5px;
+    border-radius: var(--radius);
+    margin-bottom: 10px;
+}
+
+.charsheet .tab-button {
+    padding: 10px 15px;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.2s;
+}
+
+.charsheet .tab-button:hover {
+    background: var(--color-secondary);
+}
+
+.charsheet .tab-button.active {
+    background: var(--color-accent);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.charsheet .sdc-tab-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.charsheet .tab-pane {
+    display: none;
+    flex: 1;
+    overflow: auto;
+    padding: 10px;
+}
+
+.charsheet .tab-pane.active {
+    display: flex;
+    flex-direction: column;
+}
+
 /* ===== VARIABLES ===== */
 .charsheet .sdc-sheet {
     --color-primary: #2d3436;
