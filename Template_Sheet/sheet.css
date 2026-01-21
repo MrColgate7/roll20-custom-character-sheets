@@ -34,16 +34,16 @@
 /* ===== BASE ===== */
 .charsheet .sdc-sheet {
     font-family: var(--font-main);
-    font-size: 14px;
+    font-size: 12px;
     color: var(--color-dark);
     background: var(--color-bg);
     width: 3508px;
     height: 2480px;
-    padding: 30px;
+    padding: 20px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 15px;
 }
 
 .charsheet .sdc-sheet * {
@@ -64,7 +64,7 @@
 .charsheet .sdc-sheet textarea {
     border: 2px solid var(--color-light);
     border-radius: var(--radius);
-    padding: 8px 12px;
+    padding: 6px 10px;
     background: var(--color-white);
     transition: border-color 0.2s;
 }
@@ -77,12 +77,12 @@
 }
 
 .charsheet .sdc-sheet .group-title {
-    margin: 0 0 15px 0;
-    padding: 12px 20px;
+    margin: 0 0 10px 0;
+    padding: 10px 15px;
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     color: var(--color-white);
     font-family: var(--font-title);
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -90,7 +90,7 @@
 }
 
 .charsheet .sdc-sheet .group-title .subtitle {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: normal;
     opacity: 0.8;
     text-transform: none;
@@ -98,85 +98,67 @@
 }
 
 /* ===== HEADER (3508 x 300) ===== */
-    .charsheet .sdc-header {
-        height: 120px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 20px 40px;
-        background: var(--color-white);
-        border-radius: var(--radius);
-        box-shadow: var(--shadow);
-    }
-    
-    /* ===== NOTIFICATIONS ===== */
-    .charsheet .sdc-notifications {
-        height: 40px;
-        background: var(--color-warning);
-        color: var(--color-dark);
-        border-radius: var(--radius);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        font-weight: bold;
-        text-align: center;
-    }
-    
-    .charsheet .sdc-notifications:empty {
-        display: none;
-    }
+.charsheet .sdc-header {
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: var(--color-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
 
 .charsheet .identity-block {
     display: flex;
-    gap: 30px;
+    gap: 20px;
     align-items: baseline;
 }
 
 .charsheet .input-firstname {
-    font-size: 42px;
+    font-size: 36px;
     font-weight: bold;
     font-family: var(--font-title);
     border: none;
-    border-bottom: 3px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
     border-radius: 0;
     background: transparent;
-    width: 400px;
+    width: 300px;
 }
 
 .charsheet .input-surname {
-    font-size: 24px;
+    font-size: 20px;
     font-style: italic;
     color: var(--color-secondary);
     border: none;
-    border-bottom: 2px solid var(--color-light);
+    border-bottom: 1px solid var(--color-light);
     border-radius: 0;
     background: transparent;
-    width: 250px;
+    width: 180px;
 }
 
 .charsheet .input-lastname {
-    font-size: 32px;
+    font-size: 24px;
     font-family: var(--font-title);
     border: none;
-    border-bottom: 3px solid var(--color-primary);
+    border-bottom: 2px solid var(--color-primary);
     border-radius: 0;
     background: transparent;
-    width: 350px;
+    width: 250px;
 }
 
 .charsheet .initiative-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 15px 30px;
+    padding: 12px 20px;
     background: linear-gradient(135deg, var(--color-accent), #a29bfe);
     border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
 .charsheet .initiative-label {
-    font-size: 14px;
+    font-size: 12px;
     font-weight: bold;
     color: var(--color-white);
     text-transform: uppercase;
@@ -184,8 +166,8 @@
 }
 
 .charsheet .initiative-value {
-    width: 80px;
-    font-size: 48px;
+    width: 60px;
+    font-size: 36px;
     font-weight: bold;
     text-align: center;
     background: var(--color-white);
@@ -198,96 +180,96 @@
 .charsheet .sdc-main {
     flex: 1;
     display: grid;
-    grid-template-columns: 900px 1fr 500px;
-    gap: 20px;
+    grid-template-columns: 750px 1fr 450px;
+    gap: 12px;
     min-height: 0;
 }
 
-/* ===== COLONNE STATS (900px) ===== */
+/* ===== COLONNE STATS (750px) ===== */
 .charsheet .col-stats {
     background: var(--color-white);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 12px;
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
     overflow-y: auto;
+    max-height: 1500px;
 }
 
 .charsheet .stats-group {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 6px;
 }
 
 .charsheet .stat-block {
     display: flex;
     align-items: center;
-    gap: 15px;
-    padding: 15px;
+    gap: 8px;
+    padding: 10px;
     background: var(--color-bg);
     border-radius: var(--radius);
-    border-left: 5px solid var(--color-primary);
+    border-left: 3px solid var(--color-primary);
+    flex-wrap: wrap;
 }
 
 .charsheet .stat-info {
     display: flex;
     flex-direction: column;
     align-items: center;
-    min-width: 120px;
+    min-width: 90px;
 }
 
 .charsheet .stat-name {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--color-secondary);
+    margin-bottom: 3px;
 }
 
 .charsheet .stat-value {
-    width: 70px;
-    font-size: 28px;
+    width: 50px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
-    border: 3px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
 }
 
 .charsheet .stat-die {
-    font-size: 14px;
+    font-size: 10px;
     color: var(--color-accent);
     font-weight: bold;
-}
-
-.charsheet .stat-note {
-    font-size: 10px;
-    color: var(--color-danger);
-    font-style: italic;
+    margin-top: 3px;
 }
 
 .charsheet .stat-buttons {
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
     flex: 1;
+    min-width: 100px;
 }
 
 /* ===== BOUTONS ===== */
 .charsheet .btn {
-    padding: 10px 15px;
+    padding: 6px 10px;
     border: none;
     border-radius: var(--radius);
     font-weight: bold;
-    font-size: 12px;
+    font-size: 10px;
     cursor: pointer;
     transition: all 0.2s;
     text-transform: uppercase;
     letter-spacing: 1px;
+    min-width: 70px;
 }
 
 .charsheet .btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     box-shadow: var(--shadow);
 }
 
@@ -324,8 +306,9 @@
 .charsheet .btn-unequip {
     background: var(--color-accent);
     color: var(--color-white);
-    padding: 8px;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 12px;
+    min-width: 25px;
 }
 
 .charsheet .btn-comp {
@@ -337,44 +320,44 @@
 .charsheet .defense-group {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
 .charsheet .defense-selectors {
     display: flex;
-    gap: 20px;
+    gap: 12px;
 }
 
 .charsheet .defense-select-block {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 3px;
 }
 
 .charsheet .defense-select-block label {
     font-weight: bold;
-    font-size: 12px;
+    font-size: 10px;
     text-transform: uppercase;
     color: var(--color-secondary);
 }
 
 .charsheet .defense-select-block select {
-    padding: 12px;
-    font-size: 16px;
+    padding: 8px;
+    font-size: 12px;
     font-weight: bold;
 }
 
 .charsheet .defense-buttons {
     display: flex;
-    gap: 10px;
+    gap: 6px;
 }
 
 .charsheet .defense-status {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 14px;
+    gap: 6px;
+    font-size: 11px;
     color: var(--color-secondary);
 }
 
@@ -382,11 +365,12 @@
 .charsheet .col-state {
     background: var(--color-white);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 12px;
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
+    max-height: 1500px;
 }
 
 .charsheet .body-container {
@@ -395,6 +379,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 350px;
 }
 
 .charsheet .body-silhouette {
@@ -409,7 +394,7 @@
 }
 
 .charsheet .silhouette-svg {
-    height: 90%;
+    height: 70%;
     width: auto;
     fill: var(--color-dark);
 }
@@ -421,8 +406,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto 1fr 1fr;
-    gap: 15px;
-    padding: 20px;
+    gap: 8px;
+    padding: 12px;
 }
 
 /* Positionnement des zones de blessures */
@@ -461,19 +446,19 @@
 /* ===== ZONES DE BLESSURES ===== */
 .charsheet .wound-zone {
     background: var(--color-white);
-    border: 3px solid var(--color-light);
+    border: 1px solid var(--color-light);
     border-radius: var(--radius);
-    padding: 15px;
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
+    gap: 6px;
     box-shadow: var(--shadow);
-    min-width: 180px;
+    min-width: 130px;
 }
 
 .charsheet .zone-label {
-    font-size: 14px;
+    font-size: 10px;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -483,24 +468,24 @@
 .charsheet .wound-checkboxes {
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
 }
 
 .charsheet .wound-row {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 }
 
 .charsheet .wound-type-label {
-    width: 20px;
+    width: 16px;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 10px;
 }
 
 .charsheet .wound-row input[type="checkbox"] {
-    width: 28px;
-    height: 28px;
+    width: 20px;
+    height: 20px;
     cursor: pointer;
     accent-color: var(--color-primary);
 }
@@ -530,27 +515,28 @@
 }
 
 .charsheet .zone-malus {
-    font-size: 12px;
+    font-size: 10px;
     font-weight: bold;
     color: var(--color-danger);
-    padding: 5px 10px;
+    padding: 3px 6px;
     background: #ffeaea;
     border-radius: var(--radius);
 }
 
 /* ===== ALERTE LÉTALE ===== */
 .charsheet .lethal-alert {
-    min-height: 50px;
+    min-height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: var(--color-danger);
     color: var(--color-white);
-    font-size: 20px;
+    font-size: 14px;
     font-weight: bold;
     border-radius: var(--radius);
     text-align: center;
     animation: pulse 1.5s infinite;
+    padding: 8px;
 }
 
 .charsheet .lethal-alert:empty {
@@ -567,14 +553,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
-    padding: 20px;
+    gap: 12px;
+    padding: 12px;
     background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
     border-radius: var(--radius);
 }
 
 .charsheet .movement-label {
-    font-size: 14px;
+    font-size: 10px;
     font-weight: bold;
     color: var(--color-white);
     text-transform: uppercase;
@@ -582,27 +568,29 @@
 }
 
 .charsheet .movement-value {
-    font-size: 32px;
+    font-size: 20px;
     font-weight: bold;
     color: var(--color-white);
 }
 
-/* ===== COLONNE INVENTAIRE (500px) ===== */
+/* ===== COLONNE INVENTAIRE (450px) ===== */
 .charsheet .col-inventory {
     background: var(--color-white);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 12px;
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+    max-height: 1500px;
+    overflow-y: auto;
 }
 
 .charsheet .inventory-capacity {
     text-align: center;
-    font-size: 16px;
+    font-size: 12px;
     color: var(--color-secondary);
-    padding: 10px;
+    padding: 6px;
     background: var(--color-bg);
     border-radius: var(--radius);
 }
@@ -615,43 +603,46 @@
 .charsheet .inventory-item,
 .charsheet .repeating_inventaire .repitem {
     display: grid;
-    grid-template-columns: 1fr 60px 50px;
-    gap: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
+    grid-template-columns: 1fr 40px 30px;
+    gap: 6px;
+    padding: 10px;
+    margin-bottom: 6px;
     background: var(--color-bg);
     border-radius: var(--radius);
-    border-left: 4px solid var(--color-accent);
+    border-left: 2px solid var(--color-accent);
 }
 
 .charsheet .item-name {
     font-weight: bold;
+    font-size: 12px;
 }
 
 .charsheet .item-size {
-    width: 50px;
+    width: 30px;
     text-align: center;
+    font-size: 12px;
 }
 
 .charsheet .item-desc {
     grid-column: 1 / -1;
-    min-height: 60px;
+    min-height: 40px;
     resize: vertical;
+    font-size: 10px;
 }
 
 /* ===== FOOTER (2 colonnes) ===== */
 .charsheet .sdc-footer {
-    height: 380px;
+    height: 280px;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 12px;
 }
 
 /* ===== COMPÉTENCES ===== */
 .charsheet .col-competences {
     background: var(--color-white);
     border-radius: var(--radius);
-    padding: 20px;
+    padding: 12px;
     box-shadow: var(--shadow);
     display: flex;
     flex-direction: column;
@@ -665,245 +656,228 @@
 .charsheet .competence-item,
 .charsheet .repeating_competences .repitem {
     display: grid;
-    grid-template-columns: 1fr 80px 120px;
-    gap: 10px;
-    padding: 15px;
-    margin-bottom: 10px;
+    grid-template-columns: 1fr 50px 80px;
+    gap: 6px;
+    padding: 10px;
+    margin-bottom: 6px;
     background: var(--color-bg);
     border-radius: var(--radius);
-    border-left: 4px solid #a29bfe;
+    border-left: 2px solid #a29bfe;
     align-items: start;
 }
 
 .charsheet .comp-name {
     font-weight: bold;
-    font-size: 16px;
+    font-size: 12px;
 }
 
 .charsheet .comp-cost {
-    width: 70px;
+    width: 40px;
     text-align: center;
+    font-size: 12px;
 }
 
 .charsheet .comp-effect {
     grid-column: 1 / 3;
-    min-height: 50px;
+    min-height: 30px;
     resize: vertical;
+    font-size: 10px;
 }
 
 /* ===== INVENTAIRE RAPIDE ===== */
-    .charsheet .col-quick-inventory {
-        background: var(--color-white);
-        border-radius: var(--radius);
-        padding: 20px;
-        box-shadow: var(--shadow);
-        display: flex;
-        flex-direction: column;
-    }
+.charsheet .col-quick-inventory {
+    background: var(--color-white);
+    border-radius: var(--radius);
+    padding: 12px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    max-height: 280px;
+    overflow: hidden;
+}
 
-    .charsheet .quick-inventory-row {
-        flex: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-    }
+.charsheet .quick-inventory-row {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    overflow: hidden;
+}
 
-    .charsheet .quick-slots-left,
-    .charsheet .quick-slots-right {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
+.charsheet .quick-slots-left,
+.charsheet .quick-slots-right {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 0 0 auto;
+}
 
-    .charsheet .quick-slot {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 10px 15px;
-        background: var(--color-bg);
-        border-radius: var(--radius);
-        border: 2px dashed var(--color-light);
-    }
+.charsheet .quick-slot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    background: var(--color-bg);
+    border-radius: var(--radius);
+    border: 1px dashed var(--color-light);
+    min-width: 120px;
+}
 
-    .charsheet .slot-number {
-        width: 30px;
-        height: 30px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--color-accent);
-        color: var(--color-white);
-        font-weight: bold;
-        border-radius: 50%;
-    }
+.charsheet .slot-number {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent);
+    color: var(--color-white);
+    font-weight: bold;
+    border-radius: 50%;
+    font-size: 10px;
+}
 
-    .charsheet .quick-slot input[type="text"] {
-        width: 150px;
-    }
-    
-    /* ===== MAINS (collées) ===== */
-    .charsheet .hands-block {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
+.charsheet .quick-slot input[type="text"] {
+    width: 100px;
+    font-size: 10px;
+}
 
-    .charsheet .hands-block > div:first-child {
-        display: flex;
-    }
+/* ===== MAINS (collées) ===== */
+.charsheet .hands-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 0 0 auto;
+}
 
-    .charsheet .hand {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        padding: 20px;
-        background: linear-gradient(135deg, var(--color-bg), var(--color-light));
-        border: 3px solid var(--color-primary);
-    }
+.charsheet .hands-block > div:first-child {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
 
-    .charsheet .hand-left {
-        border-radius: var(--radius) 0 0 var(--radius);
-        border-right: 1px solid var(--color-primary);
-    }
+.charsheet .hand {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--color-bg), var(--color-light));
+    border: 2px solid var(--color-primary);
+    min-width: 120px;
+}
 
-    .charsheet .hand-right {
-        border-radius: 0 var(--radius) var(--radius) 0;
-        border-left: 1px solid var(--color-primary);
-    }
+.charsheet .hand-left {
+    border-radius: var(--radius) 0 0 var(--radius);
+    border-right: 1px solid var(--color-primary);
+}
 
-    .charsheet .hand-icon {
-        font-size: 32px;
-    }
+.charsheet .hand-right {
+    border-radius: 0 var(--radius) var(--radius) 0;
+    border-left: 1px solid var(--color-primary);
+}
 
-    .charsheet .hand-label {
-        font-size: 12px;
-        font-weight: bold;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-    }
+.charsheet .hand-icon {
+    font-size: 20px;
+}
 
-    .charsheet .hand input[type="text"] {
-        width: 140px;
-        text-align: center;
-        font-weight: bold;
-    }
+.charsheet .hand-label {
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
 
-    .charsheet .hand textarea {
-        width: 140px;
-        height: 50px;
-        resize: none;
-        font-size: 11px;
-    }
+.charsheet .hand input[type="text"] {
+    width: 100px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 10px;
+}
 
-    .charsheet .two-handed-indicator {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        font-size: 12px;
-        color: var(--color-secondary);
-    }
+.charsheet .hand textarea {
+    width: 100px;
+    height: 30px;
+    resize: none;
+    font-size: 9px;
+}
 
-    .charsheet .two-handed-indicator input[type="checkbox"] {
-        width: 18px;
-        height: 18px;
-    }
-    
-    /* ===== BOUTONS D'ACTION ===== */
-    .charsheet .btn-action {
-        background: linear-gradient(135deg, var(--color-secondary), #636e72);
-        color: var(--color-white);
-        border: none;
-        border-radius: var(--radius);
-        padding: 8px 12px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: all 0.2s;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        font-size: 12px;
-    }
-    
-    .charsheet .btn-action:hover {
-        transform: translateY(-2px);
-        box-shadow: var(--shadow);
-    }
-    
-    .charsheet .btn-action:active {
-        transform: translateY(0);
-    }
-    
-    .charsheet .btn-action-equip {
-        background: linear-gradient(135deg, #00b894, #00a085);
-    }
-    
-    .charsheet .btn-action-unequip {
-        background: linear-gradient(135deg, #d63031, #c0392b);
-    }
+.charsheet .two-handed-indicator {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    font-size: 10px;
+    color: var(--color-secondary);
+}
+
+.charsheet .two-handed-indicator input[type="checkbox"] {
+    width: 14px;
+    height: 14px;
+}
 
 /* ===== ROLL TEMPLATE ===== */
 .sheet-rolltemplate-sdc .sdc-roll-template {
-    border: 3px solid var(--color-primary);
-    border-radius: 8px;
+    border: 1px solid var(--color-primary);
+    border-radius: 4px;
     overflow: hidden;
     font-family: 'Segoe UI', sans-serif;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+    font-size: 10px;
 }
 
 .sheet-rolltemplate-sdc .roll-header {
     background: linear-gradient(135deg, #2d3436, #636e72);
     color: white;
-    padding: 12px 15px;
+    padding: 8px 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .sheet-rolltemplate-sdc .roll-title {
-    font-size: 18px;
+    font-size: 14px;
     font-weight: bold;
 }
 
 .sheet-rolltemplate-sdc .roll-subtitle {
-    font-size: 12px;
+    font-size: 10px;
     opacity: 0.8;
     text-transform: uppercase;
 }
 
 .sheet-rolltemplate-sdc .roll-body {
     background: white;
-    padding: 15px;
+    padding: 10px;
 }
 
 .sheet-rolltemplate-sdc .roll-name {
     display: block;
-    font-size: 14px;
+    font-size: 10px;
     color: #636e72;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
 }
 
 .sheet-rolltemplate-sdc .roll-result {
-    font-size: 32px;
+    font-size: 20px;
     font-weight: bold;
     text-align: center;
     color: #2d3436;
-    padding: 10px;
+    padding: 6px;
     background: #f5f6fa;
-    border-radius: 8px;
-    margin-bottom: 10px;
+    border-radius: 4px;
+    margin-bottom: 6px;
 }
 
 .sheet-rolltemplate-sdc .roll-mc,
 .sheet-rolltemplate-sdc .roll-zone,
 .sheet-rolltemplate-sdc .roll-effect,
 .sheet-rolltemplate-sdc .roll-cost {
-    font-size: 14px;
-    padding: 8px;
+    font-size: 10px;
+    padding: 4px;
     background: #dfe6e9;
-    border-radius: 4px;
-    margin-top: 8px;
+    border-radius: 3px;
+    margin-top: 4px;
 }
 
 .sheet-rolltemplate-sdc .roll-zone {
