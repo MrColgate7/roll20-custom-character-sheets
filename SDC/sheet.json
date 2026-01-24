@@ -1,0 +1,28 @@
+{
+  "name": "SDC Combat Sheet",
+  "version": "1.0.0",
+  "description": "Fiche de combat SDC pour Roll20 (CSE)",
+  "author": "Développeur du projet",
+  "license": "MIT",
+  "compendium": "SDC",
+  "categories": [
+    "Character Sheet"
+  ],
+  "systems": [
+    "SDC"
+  ],
+  "url": "https://github.com/username/sdc-roll20-sheet",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/username/sdc-roll20-sheet.git"
+  },
+  "sheets": [
+    {
+      "name": "SDC Combat Sheet",
+      "type": "character",
+      "html": "sheet.html",
+      "css": "sheet.css",
+      "workers": "sheet.html"
+    }
+  ]
+}

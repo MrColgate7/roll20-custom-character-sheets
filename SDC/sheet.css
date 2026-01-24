@@ -1,0 +1,253 @@
+.charsheet {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* En-tête */
+.header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.header label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.header input[type="text"] {
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+/* Section des statistiques */
+.stats-section {
+  margin-bottom: 20px;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+}
+
+.stat-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px;
+  border: 1px solid #eee;
+  border-radius: 3px;
+}
+
+.stat-row label {
+  font-weight: bold;
+  min-width: 80px;
+  display: inline-block;
+}
+
+.stat-row input[type="number"] {
+  width: 50px;
+  padding: 3px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.die-display {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.stat-row button {
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  margin-right: 5px;
+}
+
+.stat-row button[type="roll"] {
+  background-color: #f0f0f0;
+  color: #333;
+  border: 1px solid #ccc;
+}
+
+.stat-row button[type="roll"]:hover {
+  background-color: #e0e0e0;
+}
+
+/* Boutons de type (Neutre/Attaque/Défense) */
+.stat-row button:nth-child(5) { /* Neutre */
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.stat-row button:nth-child(6) { /* Attaque */
+  background-color: #ff0000;
+  color: #ffffff;
+}
+
+.stat-row button:nth-child(7) { /* Défense */
+  background-color: #00ff00;
+  color: #000000;
+}
+
+/* Silhouette */
+.silhouette-section {
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.silhouette-section h3 {
+  grid-column: span 3;
+  text-align: center;
+}
+
+.zone {
+  padding: 10px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.zone.tete {
+  background-color: #ffcccc;
+}
+
+.zone.torse {
+  background-color: #ccffcc;
+}
+
+.zone.bras_g {
+  background-color: #ccccff;
+}
+
+.zone.bras_d {
+  background-color: #ccccff;
+}
+
+.zone.jambe_g {
+  background-color: #ffffcc;
+}
+
+.zone.jambe_d {
+  background-color: #ffffcc;
+}
+
+/* Inventaire principal */
+.inventory-section,
+.skills-section,
+.quick-inventory-section {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.inventory-section h3,
+.skills-section h3,
+.quick-inventory-section h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+/* Zones de drop */
+.compendium-drop-target {
+  min-height: 50px;
+  padding: 10px;
+  border: 2px dashed #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.compendium-drop-target:hover {
+  background-color: #f0f0f0;
+}
+
+/* Inventaire rapide */
+.quick-inventory-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.quick-inventory-section h3 {
+  grid-column: span 2;
+}
+
+.main-left,
+.main-right {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.main-left h4,
+.main-right h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+
+.slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.slot {
+  min-height: 40px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9f9f9;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .silhouette-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .quick-inventory-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .slots {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Debug styles (optionnel) */
+.debug-section {
+  display: none;
+  padding: 10px;
+  margin-top: 20px;
+  border: 1px solid #999;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+}

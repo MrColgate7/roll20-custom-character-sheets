@@ -1,0 +1,499 @@
+<div class="charsheet">
+  <style>
+    /* Styles CSS pour le système SDC */
+    .charsheet {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      line-height: 1.4;
+      color: #333;
+    }
+    
+    /* En-tête : Identité */
+    .header {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .header label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+    
+    .header input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    /* Section des statistiques */
+    .stats-section {
+      margin-bottom: 20px;
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 10px;
+    }
+    
+    .stat-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      padding: 5px;
+      border: 1px solid #eee;
+      border-radius: 3px;
+    }
+    
+    .stat-row label {
+      font-weight: bold;
+      min-width: 80px;
+      display: inline-block;
+    }
+    
+    .stat-row input[type="number"] {
+      width: 50px;
+      padding: 3px;
+      border: 1px solid #ccc;
+      border-radius: 3px;
+    }
+    
+    .die-display {
+      margin-right: 10px;
+      font-weight: bold;
+    }
+    
+    .stat-row button {
+      width: 30px;
+      height: 30px;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      margin-right: 5px;
+    }
+    
+    .stat-row button[type="roll"] {
+      background-color: #f0f0f0;
+      color: #333;
+      border: 1px solid #ccc;
+    }
+    
+    .stat-row button[type="roll"]:hover {
+      background-color: #e0e0e0;
+    }
+    
+    /* Boutons de type (Neutre/Attaque/Défense) */
+    .stat-row button:nth-child(5) { /* Neutre */
+      background-color: #ffffff;
+      color: #000000;
+    }
+    
+    .stat-row button:nth-child(6) { /* Attaque */
+      background-color: #ff0000;
+      color: #ffffff;
+    }
+    
+    .stat-row button:nth-child(7) { /* Défense */
+      background-color: #00ff00;
+      color: #000000;
+    }
+    
+    /* Silhouette */
+    .silhouette-section {
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    
+    .silhouette-section h3 {
+      grid-column: span 3;
+      text-align: center;
+    }
+    
+    .zone {
+      padding: 10px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .zone.tete {
+      background-color: #ffcccc;
+    }
+    
+    .zone.torse {
+      background-color: #ccffcc;
+    }
+    
+    .zone.bras_g {
+      background-color: #ccccff;
+    }
+    
+    .zone.bras_d {
+      background-color: #ccccff;
+    }
+    
+    .zone.jambe_g {
+      background-color: #ffffcc;
+    }
+    
+    .zone.jambe_d {
+      background-color: #ffffcc;
+    }
+    
+    /* Inventaire principal */
+    .inventory-section,
+    .skills-section,
+    .quick-inventory-section {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .inventory-section h3,
+    .skills-section h3,
+    .quick-inventory-section h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+    
+    /* Zones de drop */
+    .compendium-drop-target {
+      min-height: 50px;
+      padding: 10px;
+      border: 2px dashed #ccc;
+      border-radius: 5px;
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+    }
+    
+    .compendium-drop-target:hover {
+      background-color: #f0f0f0;
+    }
+    
+    /* Inventaire rapide */
+    .quick-inventory-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 15px;
+    }
+    
+    .quick-inventory-section h3 {
+      grid-column: span 2;
+    }
+    
+    .main-left,
+    .main-right {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    
+    .main-left h4,
+    .main-right h4 {
+      margin-top: 0;
+      margin-bottom: 5px;
+    }
+    
+    .slots {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+    }
+    
+    .slot {
+      min-height: 40px;
+      border: 1px solid #999;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f9f9f9;
+    }
+    
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .header {
+        grid-template-columns: 1fr;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      .silhouette-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .quick-inventory-section {
+        grid-template-columns: 1fr;
+      }
+      
+      .slots {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+  
+  <!-- En-tête : Identité -->
+  <div class="header">
+    <div class="character-name">
+      <label for="attr_name">Prénom</label>
+      <input type="text" name="attr_name" />
+    </div>
+    <div class="character-nickname">
+      <label for="attr_nickname">Surnom</label>
+      <input type="text" name="attr_nickname" />
+    </div>
+    <div class="character-family">
+      <label for="attr_family">Nom/Famille</label>
+      <input type="text" name="attr_family" />
+    </div>
+  </div>
+
+  <!-- Bloc gauche : Stats + commandes SDC -->
+  <div class="stats-section">
+    <div class="stats-grid">
+      <div class="stat-row">
+        <label for="attr_strength">Force</label>
+        <input type="number" name="attr_strength" value="0" />
+        <span class="die-display">(d10)</span>
+        <button type="roll" name="roll_strength" value="1d20+[[strength]]">⚪</button>
+        <button type="roll" name="roll_strength_attack" value="1d20+[[strength]]">🔴</button>
+        <button type="roll" name="roll_strength_defense" value="Endurance">🟢</button>
+      </div>
+      <div class="stat-row">
+        <label for="attr_agility">Agilité</label>
+        <input type="number" name="attr_agility" value="0" />
+        <span class="die-display">(d10)</span>
+        <button type="roll" name="roll_agility" value="1d20+[[agility]]">⚪</button>
+        <button type="roll" name="roll_agility_attack" value="1d20+[[agility]]">🔴</button>
+        <button type="roll" name="roll_agility_defense" value="Endurance">🟢</button>
+      </div>
+      <div class="stat-row">
+        <label for="attr_technique">Technique</label>
+        <input type="number" name="attr_technique" value="0" />
+        <span class="die-display">(d10)</span>
+        <button type="roll" name="roll_technique" value="1d20+[[technique]]">⚪</button>
+        <button type="roll" name="roll_technique_attack" value="1d20+[[technique]]">🔴</button>
+        <button type="roll" name="roll_technique_defense" value="Endurance">🟢</button>
+      </div>
+      <div class="stat-row">
+        <label for="attr_endurance">Endurance</label>
+        <input type="number" name="attr_endurance" value="0" />
+        <span class="die-display">(d10)</span>
+        <button type="roll" name="roll_endurance" value="1d20+[[endurance]]">⚪</button>
+        <button type="roll" name="roll_endurance_attack" value="1d20+[[endurance]]">🔴</button>
+        <button type="roll" name="roll_endurance_defense" value="Endurance">🟢</button>
+      </div>
+      <div class="stat-row">
+        <label for="attr_intuition">Intuition</label>
+        <input type="number" name="attr_intuition" value="0" />
+        <span class="die-display">(d10)</span>
+        <button type="roll" name="roll_intuition" value="1d20+[[intuition]]">⚪</button>
+        <button type="roll" name="roll_intuition_attack" value="1d20+[[intuition]]">🔴</button>
+        <button type="roll" name="roll_intuition_defense" value="Endurance">🟢</button>
+      </div>
+      <div class="stat-row">
+        <label for="attr_deduction">Déduction</label>
+        <input type="number" name="attr_deduction" value="0" />
+        <span class="die-display">(d10)</span>
+        <button type="roll" name="roll_deduction" value="1d20+[[deduction]]">⚪</button>
+        <button type="roll" name="roll_deduction_attack" value="1d20+[[deduction]]">🔴</button>
+        <button type="roll" name="roll_deduction_defense" value="Endurance">🟢</button>
+      </div>
+      <div class="stat-row">
+        <label for="attr_eloquence">Éloquence</label>
+        <input type="number" name="attr_eloquence" value="0" />
+        <span class="die-display">(d10)</span>
+        <button type="roll" name="roll_eloquence" value="1d20+[[eloquence]]">⚪</button>
+        <button type="roll" name="roll_eloquence_attack" value="1d20+[[eloquence]]">🔴</button>
+        <button type="roll" name="roll_eloquence_defense" value="Endurance">🟢</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bloc central : Silhouette / Blessures -->
+  <div class="silhouette-section">
+    <h3>Silhouette</h3>
+    <div class="zone tete">Tête</div>
+    <div class="zone torse">Torse</div>
+    <div class="zone bras_g">Bras G</div>
+    <div class="zone bras_d">Bras D</div>
+    <div class="zone jambe_g">Jambe G</div>
+    <div class="zone jambe_d">Jambe D</div>
+  </div>
+
+  <!-- Bloc droit : Inventaire principal -->
+  <div class="inventory-section">
+    <h3>Inventaire</h3>
+    <div class="compendium-drop-target" id="inventory-drop">
+      <!-- Zone de drop pour l'inventaire -->
+    </div>
+    <div class="repeating_inventory">
+      <!-- Sections d'inventaire répétitives -->
+    </div>
+  </div>
+
+  <!-- Bande basse gauche : Compétences -->
+  <div class="skills-section">
+    <h3>Compétences</h3>
+    <div class="compendium-drop-target" id="skills-drop">
+      <!-- Zone de drop pour les compétences -->
+    </div>
+    <div class="repeating_skills">
+      <!-- Sections de compétences répétitives -->
+    </div>
+  </div>
+
+  <!-- Bande basse droite : Inventaire rapide + mains -->
+  <div class="quick-inventory-section">
+    <h3>Inventaire Rapide</h3>
+    <div class="main-left">
+      <h4>Main Gauche</h4>
+      <div class="compendium-drop-target" id="main-left-drop"></div>
+    </div>
+    <div class="main-right">
+      <h4>Main Droite</h4>
+      <div class="compendium-drop-target" id="main-right-drop"></div>
+    </div>
+    <div class="slots">
+      <h4>Slots Rapides</h4>
+      <div class="slot slot1">
+        <div class="compendium-drop-target" id="slot1-drop"></div>
+      </div>
+      <div class="slot slot2">
+        <div class="compendium-drop-target" id="slot2-drop"></div>
+      </div>
+      <div class="slot slot3">
+        <div class="compendium-drop-target" id="slot3-drop"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rolltemplates -->
+  <rolltemplate name="SDC_Neutre">
+    <div class="sheet-rolltemplate">
+      <h3>Jet Neutre : {{name}}</h3>
+      <p><strong>{{stat}} :</strong> {{stat_value}}</p>
+      <p><strong>Jet :</strong> {{roll}}</p>
+      <p>{{success}}</p>
+    </div>
+  </rolltemplate>
+
+  <rolltemplate name="SDC_Attaque">
+    <div class="sheet-rolltemplate">
+      <h3>Attaque</h3>
+      <p><strong>Type :</strong> {{attack_type}}</p>
+      <p><strong>Stat :</strong> {{stat_name}}</p>
+      <p><strong>Jet :</strong> {{roll}}</p>
+      <p><strong>Zone ciblée :</strong> {{target_zone}}</p>
+      <p><strong>Score d'attaque :</strong> {{attack_score}}</p>
+      <p>{{result}}</p>
+    </div>
+  </rolltemplate>
+
+  <rolltemplate name="SDC_Defense">
+    <div class="sheet-rolltemplate">
+      <h3>Défense</h3>
+      <p><strong>Stat utilisée :</strong> {{defense_stat}}</p>
+      <p><strong>Endurance :</strong> {{endurance}}</p>
+      <p><strong>Modificateur de confrontation :</strong> {{mc}}</p>
+      <p><strong>Score de défense :</strong> {{defense_score}}</p>
+      <p>{{result}}</p>
+    </div>
+  </rolltemplate>
+
+  <rolltemplate name="SDC_Blessure">
+    <div class="sheet-rolltemplate">
+      <h3>Blessure</h3>
+      <p><strong>Zone :</strong> {{zone}}</p>
+      <p><strong>Gravité :</strong> {{severity}}</p>
+      <p><strong>Écart :</strong> {{difference}}</p>
+      <p>{{result}}</p>
+    </div>
+  </rolltemplate>
+
+  <!-- Sheet Workers -->
+  <script type="text/worker">
+    // Conversion stat -> dés
+    const convertStatToDie = (statValue) => {
+      if (statValue < 20) return 10;
+      if (statValue < 30) return 20;
+      if (statValue < 40) return 30;
+      if (statValue < 50) return 40;
+      if (statValue < 60) return 50;
+      if (statValue < 70) return 60;
+      if (statValue < 80) return 70;
+      if (statValue < 90) return 80;
+      if (statValue < 100) return 90;
+      return 100;
+    };
+
+    // Mise à jour automatique des dés pour chaque stat
+    const updateDice = () => {
+      const stats = ['strength', 'agility', 'technique', 'endurance', 'intuition', 'deduction', 'eloquence'];
+      const promises = stats.map(stat => {
+        return new Promise((resolve) => {
+          getAttrs([`attr_${stat}`], (vals) => {
+            const statValue = parseInt(vals[`attr_${stat}`]) || 0;
+            const die = convertStatToDie(statValue);
+            setAttrs({ [`attr_${stat}_die`]: die });
+            resolve();
+          });
+        });
+      });
+
+      return Promise.all(promises);
+    };
+
+    // Initialiser le système
+    on("sheet:opened", () => {
+      updateDice();
+    });
+
+    // Mise à jour automatique des dés quand une stat change
+    on("change:attr_strength change:attr_agility change:attr_technique change:attr_endurance change:attr_intuition change:attr_deduction change:attr_eloquence", (eventInfo) => {
+      updateDice();
+    });
+
+    // Gestion des jets neutres
+    on("change:roll_strength change:roll_agility change:roll_technique change:roll_endurance change:roll_intuition change:roll_deduction change:roll_eloquence", (eventInfo) => {
+      const statName = eventInfo.sourceAttribute.replace('roll_', '');
+      setAttrs({ [`attr_${statName}_rolled`]: `1d20+[[${statName}]]` });
+    });
+
+    // Gestion des attaques
+    on("change:roll_strength_attack change:roll_agility_attack change:roll_technique_attack change:roll_intuition_attack change:roll_deduction_attack change:roll_eloquence_attack", (eventInfo) => {
+      const statName = eventInfo.sourceAttribute.replace('roll_', '').replace('_attack', '');
+      const attackType = (['strength', 'agility', 'technique'].includes(statName)) ? 'Physique' : 'Mentale';
+      
+      // Pour une vraie implémentation, il faudrait utiliser un formulaire de ciblage de zone
+      setAttrs({ 
+        [`attr_${statName}_attack_rolled`]: `1d20+[[${statName}]]`,
+        [`attr_${statName}_attack_type`]: attackType
+      });
+    });
+
+    // Gestion des défenses
+    on("change:roll_strength_defense change:roll_agility_defense change:roll_technique_defense change:roll_intuition_defense change:roll_deduction_defense change:roll_eloquence_defense", (eventInfo) => {
+      const statName = eventInfo.sourceAttribute.replace('roll_', '').replace('_defense', '');
+      
+      // Pour une vraie implémentation, il faudrait utiliser un formulaire de sélection de défense
+      setAttrs({ 
+        [`attr_${statName}_defense_rolled`]: `Endurance` 
+      });
+    });
+  </script>
+</div>
